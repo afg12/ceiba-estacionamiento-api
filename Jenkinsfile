@@ -26,7 +26,7 @@ pipeline {
 				checkout([$class: 'GitSCM', branches: [[name: '*/master']],
 				doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:	'Git_Centos', 
 				submoduleCfg: [], userRemoteConfigs: [[credentialsId:	'GitHub_andreaflorez', 
-				url: 'https://github.com/afg12/ceiba-estacionamiento-api.git']]])
+				url: 'https://github.com/afg12/ceiba-estacionamiento-api']]])
 				sh 'gradle clean'
 	 		}
 	 	}
