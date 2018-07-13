@@ -66,11 +66,11 @@ pipeline {
 	 		echo 'This will always run'
 	 	}
 	 	success {
-	 		echo 'This will run only if successful'
-	 		junit '**/build/test-results/test/*.xml'
-	 		//junit 'build/test-results/*.xml'
-		 	jacoco 'jacoco/test-results/*.xml'
-	 	}
+			echo 'This will run only if successful'
+			sh 'gradle test'
+			junit '**/jacoco/test-results/*.xml'
+			jacoco classPattern: '**/build/classes/java', execPattern: '**/jacoco/jacocoTest.exec', sourcePattern: '**/src/main/java'
+		}
 	 	failure {
 	 		echo 'This will run only if failed'
 	 		mail (to: 'andrea.florez@ceiba.com.co',subject: "Failed	Pipeline:${currentBuild.fullDisplayName}",body: "Something is wrong	with ${env.BUILD_URL}")

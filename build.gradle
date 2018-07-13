@@ -20,6 +20,11 @@ group = 'co.com.ceiba.estacionamiento'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
 
+jacoco {
+    toolVersion = "0.8.1"
+    reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
 repositories {
 	mavenCentral()
 }
@@ -35,9 +40,12 @@ dependencies {
 }
 
 test {
+	//systemProperties 'property': 'value'
 	jacoco {
 		append = false
 		destinationFile = file("jacoco/jacocoTest.exec")
 	}
-	reports.junitXml.destination =  file("jacoco/test-results")
+	reports.junitXml.destination = file("jacoco/test-results")
 }
+
+jacocoTestReport.dependsOn(test)
