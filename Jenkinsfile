@@ -20,14 +20,14 @@ pipeline {
 	 
 	 //Aquí comienzan los “items” del Pipeline
 	 stages{
-	 	stage('Checkout') {
+		stage('Checkout') {
 	 		steps{
-	 			echo "------------>Checkout<------------"
-	 			checkout([$class: 'GitSCM', branches: [[name: '*/master']],
-				doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:
-				'Git_Centos', submoduleCfg: [], userRemoteConfigs: [[credentialsId:
-				'GitHub_andreaflorez', url:
-				'https://github.com/afg12/ceiba-estacionamiento-api.git']]])
+				echo "------------>Checkout<------------"
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+				doGenerateSubmoduleConfigurations: false, extensions: [], gitTool:	'Git_Centos', 
+				submoduleCfg: [], userRemoteConfigs: [[credentialsId:	'GitHub_andreaflorez', 
+				url: 'https://github.com/afg12/ceiba-estacionamiento-api.git']]])
+				sh 'gradle clean'
 	 		}
 	 	}
 	 	
@@ -67,7 +67,9 @@ pipeline {
 	 	}
 	 	success {
 	 		echo 'This will run only if successful'
-	 		//junit '**/build/test-results/test/*.xml'
+	 		junit '**/build/test-results/test/*.xml'
+	 		//junit 'build/test-results/*.xml'
+		 	jacoco 'jacoco/test-results/*.xml'
 	 	}
 	 	failure {
 	 		echo 'This will run only if failed'
