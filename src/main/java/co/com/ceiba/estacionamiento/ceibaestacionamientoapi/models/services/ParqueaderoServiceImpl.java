@@ -29,4 +29,17 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 		return (List<Parqueadero>) parqueaderoDao.findAll();
 	}
 
+	@Override
+	public int cantidadParqueaderosDisponibles(String tipoVehiculo) {
+		return parqueaderoDao.findByTipoVehiculoAndFechaSalidaIsNull(tipoVehiculo);
+	}
+
+	@Override
+	public boolean isVehiculoRegistrado(String placa) {
+		Parqueadero parqueadero = parqueaderoDao.findParqueaderoByPlaca(placa);
+		return null!=parqueadero?false:true;
+	}
+
+
+
 }
