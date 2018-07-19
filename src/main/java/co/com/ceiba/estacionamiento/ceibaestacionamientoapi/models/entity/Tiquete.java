@@ -5,6 +5,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +14,8 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Entity
 @Table(name="tiquetes")
@@ -31,7 +35,8 @@ public class Tiquete implements Serializable{
 	private String cilindraje;
 	
 	@Column(name="tipo_vehiculo")
-	private String tipoVehiculo;
+	@Enumerated(EnumType.STRING)
+	private TipoVehiculo tipoVehiculo;
 	
 	@Column(name="fecha_ingreso")
 	private Date fechaIngreso; 
@@ -47,15 +52,15 @@ public class Tiquete implements Serializable{
 	}
 	
 	@PreUpdate
-	  protected void onUpdate() {
+	protected void onUpdate() {
 		fechaSalida = new Date();
-	  }
+	}
 	
 	private Tiquete() {
 
 	}
 
-	public Tiquete(@NotEmpty String placa, String cilindraje, String tipoVehiculo, Date fechaIngreso, Date fechaSalida,
+	public Tiquete(@NotEmpty String placa, String cilindraje, TipoVehiculo tipoVehiculo, Date fechaIngreso, Date fechaSalida,
 			Double total) {
 		this.placa = placa;
 		this.cilindraje = cilindraje;
@@ -88,11 +93,11 @@ public class Tiquete implements Serializable{
 		this.cilindraje = cilindraje;
 	}
 
-	public String getTipoVehiculo() {
+	public TipoVehiculo getTipoVehiculo() {
 		return tipoVehiculo;
 	}
 
-	public void setTipoVehiculo(String tipoVehiculo) {
+	public void setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 	}
 

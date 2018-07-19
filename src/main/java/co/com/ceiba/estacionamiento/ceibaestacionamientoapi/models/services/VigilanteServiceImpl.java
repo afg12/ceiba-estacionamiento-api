@@ -8,15 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
 public class VigilanteServiceImpl implements IVigilanteService{
 	
 	private static final String PLACA_NO_PERMITIDA = "A";
-
-	private static final String CARRO = "carro";
-	
-	private static final String MOTO = "moto";
 	
 	private static final int CANT_MOTOS = 10;
 
@@ -29,10 +26,10 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	@Override
 	@Transactional(readOnly=true)
 	public boolean validarDisponibilidad(Tiquete tiquete) {
-		long cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tiquete.getTipoVehiculo());
-		
-		return ((MOTO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantVehiculosParqueados < CANT_MOTOS)
-				|| (CARRO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantVehiculosParqueados < CANT_CARROS));
+		int cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tiquete.getTipoVehiculo());
+
+		return ((TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && cantVehiculosParqueados < CANT_MOTOS)
+				|| (TipoVehiculo.CARRO == tiquete.getTipoVehiculo() && cantVehiculosParqueados < CANT_CARROS));
 	}
 
 	@Override

@@ -10,10 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
 public class TiqueteServiceImpl implements ITiqueteService{
 	
+
+	private static final int HORAS_ADICIONALES = 27;
 
 	private static final int VALOR_ADICIONAL_HORAS = 11000;
 
@@ -30,8 +33,6 @@ public class TiqueteServiceImpl implements ITiqueteService{
 	private static final int VALOR_DIA_MOTO = 600;
 
 	private static final int VALOR_DIA_CARRO = 8000;
-
-	private static final String CARRO = "carro";
 
 	@Autowired
 	private ITiqueteDao tiqueteDao;
@@ -53,13 +54,8 @@ public class TiqueteServiceImpl implements ITiqueteService{
 	@Transactional(readOnly=true)
 	public Double calcularCosto(Tiquete tiquete) {
 		
-		int valorHora = VALOR_HORA_MOTO;
-		int valorDia = VALOR_DIA_MOTO;
-		
-		if(CARRO.equalsIgnoreCase(tiquete.getTipoVehiculo())) {
-			valorHora = VALOR_HORA_CARRO;
-			valorDia = VALOR_DIA_CARRO;
-		}
+		int valorHora = TipoVehiculo.CARRO == tiquete.getTipoVehiculo() ? VALOR_HORA_CARRO: VALOR_HORA_MOTO;
+		int valorDia = TipoVehiculo.CARRO == tiquete.getTipoVehiculo()? VALOR_DIA_CARRO : VALOR_DIA_MOTO;
 		
 		Calendar calFechaInicial=Calendar.getInstance();
 		Calendar calFechaFinal=Calendar.getInstance();
@@ -81,11 +77,11 @@ public class TiqueteServiceImpl implements ITiqueteService{
 			total = total + (double) (diasParqueo * valorDia);
 		}
 		
-		if(!tiquete.getCilindraje().isEmpty() && Integer.parseInt(tiquete.getCilindraje()) > CILINDRAJE_MINIMO) {
+		if(TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && Integer.parseInt(tiquete.getCilindraje()) > CILINDRAJE_MINIMO) {
 			total = total + VALOR_ADICIONAL_MOTO; 
 		}
 		
-		if(horasParqueo == 27 ) {
+		if(horasParqueo == HORAS_ADICIONALES ) {
 			total = total + VALOR_ADICIONAL_HORAS;
 		}
 		
@@ -100,7 +96,7 @@ public class TiqueteServiceImpl implements ITiqueteService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public long cantParqueaderosDisponibles(String tipoVehiculo) {
+	public int cantParqueaderosDisponibles(TipoVehiculo tipoVehiculo) {
 		return tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
 	}
 	
