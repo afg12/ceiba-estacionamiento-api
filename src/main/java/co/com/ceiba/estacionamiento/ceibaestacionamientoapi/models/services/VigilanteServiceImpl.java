@@ -29,14 +29,10 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	@Override
 	@Transactional(readOnly=true)
 	public boolean validarDisponibilidad(Tiquete tiquete) {
-		long cantCarrosParqueados = tiqueteService.cantParqueaderosDisponibles(tiquete.getTipoVehiculo());
+		long cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tiquete.getTipoVehiculo());
 		
-		if((MOTO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantCarrosParqueados < CANT_MOTOS)
-				|| (CARRO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantCarrosParqueados < CANT_CARROS)) {
-			return true;
-		}
-		
-		return false;
+		return ((MOTO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantVehiculosParqueados < CANT_MOTOS)
+				|| (CARRO.equalsIgnoreCase(tiquete.getTipoVehiculo()) && cantVehiculosParqueados < CANT_CARROS));
 	}
 
 	@Override

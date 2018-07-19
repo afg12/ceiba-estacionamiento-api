@@ -1,7 +1,6 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers;
 
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,31 +29,31 @@ public class ParqueaderoRestController {
 	private IVigilanteService vigilanteService;
 	
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
-	public ResponseEntity<?> registrarEntrada(@RequestBody Tiquete tiquete) {
+	public ResponseEntity<String> registrarEntrada(@RequestBody Tiquete tiquete) {
 		if(!vigilanteService.validarDisponibilidad(tiquete) || !vigilanteService.validarPlaca(tiquete.getPlaca())) {
-			return new ResponseEntity<String>(HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		
 		tiqueteService.save(tiquete);
-		return new ResponseEntity<String>(HttpStatus.CREATED);
+		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
 	
 	@RequestMapping(value="/facturar/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<?> generarTiquete(@PathVariable Long id) {
+	public ResponseEntity<Tiquete> generarTiquete(@PathVariable Long id) {
 		Tiquete tiquete = tiqueteService.buscarVehiculoRegistrado(id);
 		tiquete.setTotal(tiqueteService.calcularCosto(tiquete));
 		tiqueteService.save(tiquete);
 		
-		return new ResponseEntity<Tiquete>(tiquete, HttpStatus.OK);
+		return new ResponseEntity<>(tiquete, HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/listar")
 	public ResponseEntity<List<Tiquete>> listarVehiculos() {
 		List<Tiquete> tiquetes = tiqueteService.listarTiquetes();
         if (tiquetes.isEmpty()) {
-            return new ResponseEntity(new VehiculoException("Tiquetes not found"), HttpStatus.NO_CONTENT);
+            return new ResponseEntity(new VehiculoException("Tiquetes no encontrado"), HttpStatus.NO_CONTENT);
         }
-		return new ResponseEntity<List<Tiquete>>(tiquetes, HttpStatus.OK);
+		return new ResponseEntity<>(tiquetes, HttpStatus.OK);
 
 	}
 }

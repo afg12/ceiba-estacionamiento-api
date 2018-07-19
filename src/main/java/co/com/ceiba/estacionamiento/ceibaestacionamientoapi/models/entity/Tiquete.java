@@ -50,28 +50,26 @@ public class Tiquete implements Serializable{
 	  protected void onUpdate() {
 		fechaSalida = new Date();
 	  }
+	
+	private Tiquete() {
 
-	public Tiquete() {
-		
 	}
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
-	public Tiquete(Long id, @NotEmpty String placa, String cilindraje, String tipoVehiculo, Date fechaIngreso,
-			Date fechaSalida, Double total) {
-		super();
-		this.id = id;
+
+	public Tiquete(@NotEmpty String placa, String cilindraje, String tipoVehiculo, Date fechaIngreso, Date fechaSalida,
+			Double total) {
 		this.placa = placa;
 		this.cilindraje = cilindraje;
 		this.tipoVehiculo = tipoVehiculo;
 		this.fechaIngreso = fechaIngreso;
 		this.fechaSalida = fechaSalida;
 		this.total = total;
+	}
+
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getPlaca() {
