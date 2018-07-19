@@ -4,10 +4,8 @@ import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
@@ -24,16 +22,14 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	ITiqueteService tiqueteService;
 	
 	@Override
-	@Transactional(readOnly=true)
-	public boolean validarDisponibilidad(Tiquete tiquete) {
-		int cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tiquete.getTipoVehiculo());
+	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
+		int cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tipoVehiculo);
 
-		return ((TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && cantVehiculosParqueados < CANT_MOTOS)
-				|| (TipoVehiculo.CARRO == tiquete.getTipoVehiculo() && cantVehiculosParqueados < CANT_CARROS));
+		return ((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
+				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS));
 	}
 
 	@Override
-	@Transactional(readOnly=true)
 	public boolean validarPlaca(String placa) {
 		Calendar cal = Calendar.getInstance();
 		int dia = cal.get(Calendar.DAY_OF_WEEK);

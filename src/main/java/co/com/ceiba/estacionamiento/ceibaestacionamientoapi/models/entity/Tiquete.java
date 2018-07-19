@@ -60,7 +60,7 @@ public class Tiquete implements Serializable{
 
 	}
 
-	public Tiquete(@NotEmpty String placa, String cilindraje, TipoVehiculo tipoVehiculo, Date fechaIngreso, Date fechaSalida,
+	public Tiquete(String placa, String cilindraje, TipoVehiculo tipoVehiculo, Date fechaIngreso, Date fechaSalida,
 			Double total) {
 		this.placa = placa;
 		this.cilindraje = cilindraje;

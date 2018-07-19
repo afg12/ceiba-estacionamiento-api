@@ -16,10 +16,6 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 public class TiqueteServiceImpl implements ITiqueteService{
 	
 
-	private static final int HORAS_ADICIONALES = 27;
-
-	private static final int VALOR_ADICIONAL_HORAS = 11000;
-
 	private static final int VALOR_ADICIONAL_MOTO = 2000;
 
 	private static final int CILINDRAJE_MINIMO = 500;
@@ -34,8 +30,12 @@ public class TiqueteServiceImpl implements ITiqueteService{
 
 	private static final int VALOR_DIA_CARRO = 8000;
 
-	@Autowired
 	private ITiqueteDao tiqueteDao;
+	
+	@Autowired
+	public TiqueteServiceImpl(ITiqueteDao tiqueteDao) {
+		this.tiqueteDao = tiqueteDao;
+	}
 	
 	@Override
 	@Transactional
@@ -54,38 +54,33 @@ public class TiqueteServiceImpl implements ITiqueteService{
 	@Transactional(readOnly=true)
 	public Double calcularCosto(Tiquete tiquete) {
 		
+		int total = 0;
 		int valorHora = TipoVehiculo.CARRO == tiquete.getTipoVehiculo() ? VALOR_HORA_CARRO: VALOR_HORA_MOTO;
 		int valorDia = TipoVehiculo.CARRO == tiquete.getTipoVehiculo()? VALOR_DIA_CARRO : VALOR_DIA_MOTO;
 		
 		Calendar calFechaInicial=Calendar.getInstance();
 		Calendar calFechaFinal=Calendar.getInstance();
-		Double total = null;
-
 		calFechaInicial.setTime(tiquete.getFechaIngreso());
 		
 		int horasParqueo = cantidadTotalHoras(calFechaInicial, calFechaFinal);
 		int diasParqueo = horasParqueo/24; 
 		int horasResiduo = horasParqueo % 24;
 		
-		if(horasResiduo > HORAS_MINIMAS) {
+		if(horasResiduo >= HORAS_MINIMAS) {
 			diasParqueo +=1;
 		} else {
-			total = (double) (horasResiduo * valorHora);
+			total = (horasResiduo * valorHora);
 		}
 		
 		if(diasParqueo > 0) {
-			total = total + (double) (diasParqueo * valorDia);
+			total = total + (diasParqueo * valorDia);
 		}
 		
 		if(TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && Integer.parseInt(tiquete.getCilindraje()) > CILINDRAJE_MINIMO) {
 			total = total + VALOR_ADICIONAL_MOTO; 
 		}
 		
-		if(horasParqueo == HORAS_ADICIONALES ) {
-			total = total + VALOR_ADICIONAL_HORAS;
-		}
-		
-		return total;
+		return (double) total;
 	}
 
 	private static int cantidadTotalHoras(Calendar fechaInicial, Calendar fechaFinal){

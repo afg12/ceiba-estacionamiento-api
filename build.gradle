@@ -38,6 +38,7 @@ dependencies {
 	runtime('mysql:mysql-connector-java')
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile group: 'junit', name: 'junit', version: '4.12'
+	testCompile "org.mockito:mockito-core:1.+"
 }
 
 test {
