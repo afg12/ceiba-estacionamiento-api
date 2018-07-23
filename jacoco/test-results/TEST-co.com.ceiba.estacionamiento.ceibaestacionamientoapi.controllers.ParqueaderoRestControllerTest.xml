@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-23T15:32:52" hostname="ANDREA-FLOREZ" time="1.727">
+  <properties/>
+  <testcase name="listarTiquetesTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="1.483"/>
+  <testcase name="facturarTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.082"/>
+  <testcase name="isRegistrarEntradaTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.122"/>
+  <testcase name="noRegistrarEntradaTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.04"/>
+  <system-out><![CDATA[10:32:53.463 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Created GET request for "http://localhost:8080/parqueadero/listar"
+10:32:53.525 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Setting request Accept header to [application/json, application/*+json]
+10:32:53.886 [Test worker] DEBUG org.springframework.web.client.RestTemplate - GET request for "http://localhost:8080/parqueadero/listar" resulted in 200 (null)
+10:32:53.889 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading [java.util.List<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete>] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@949b196]
+10:32:54.063 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Created PUT request for "http://localhost:8080/parqueadero/facturar/1"
+10:32:54.067 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Setting request Accept header to [application/json, application/*+json]
+10:32:54.140 [Test worker] DEBUG org.springframework.web.client.RestTemplate - PUT request for "http://localhost:8080/parqueadero/facturar/1" resulted in 200 (null)
+10:32:54.141 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading [class co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@41d7fde5]
+10:32:54.145 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Created POST request for "http://localhost:8080/parqueadero/registrar"
+10:32:54.147 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Setting request Accept header to [application/json, application/*+json]
+10:32:54.184 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Writing [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete@5892832e] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@539d05ac]
+10:32:54.263 [Test worker] DEBUG org.springframework.web.client.RestTemplate - POST request for "http://localhost:8080/parqueadero/registrar" resulted in 201 (null)
+10:32:54.264 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Reading [class co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@539d05ac]
+10:32:54.268 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Created POST request for "http://localhost:8080/parqueadero/registrar"
+10:32:54.271 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Setting request Accept header to [application/json, application/*+json]
+10:32:54.275 [Test worker] DEBUG org.springframework.web.client.RestTemplate - Writing [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete@62999158] using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@65d01fb9]
+10:32:54.302 [Test worker] DEBUG org.springframework.web.client.RestTemplate - POST request for "http://localhost:8080/parqueadero/registrar" resulted in 406 (null); invoking error handler
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
