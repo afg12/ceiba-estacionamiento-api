@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
+import java.util.Calendar;
 import java.util.Date;
 
 import org.junit.Assert;
@@ -40,6 +41,46 @@ public class ParqueaderoRestControllerTest {
 	private MockMvc mockMvc;
 	
 	@Test
+	public void isRegistrarEntradaTest() throws Exception {
+		
+		MockHttpServletResponse response = mockMvc.perform(
+                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
+                		asJsonString(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00))
+                )).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.CREATED.value(), response.getStatus());
+	}
+	
+	@Test
+	public void validarPlacaRegistroTest() throws Exception {
+		//assert
+		Calendar calendar =  Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		
+		//act
+		MockHttpServletResponse response = mockMvc.perform(
+                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
+                		asJsonString(new Tiquete("ADF456", null, TipoVehiculo.CARRO, calendar.getTime(), null, 0.00))
+                )).andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.NOT_ACCEPTABLE.value(), response.getStatus());
+	}
+	
+	@Test
+	public void validarVehiculoRegistroTest() throws Exception{
+		//act
+		MockHttpServletResponse response = mockMvc.perform(
+                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
+                		asJsonString(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00))
+                )).andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.NOT_ACCEPTABLE.value(), response.getStatus());
+	}
+	
+	@Test
 	public void listarTiquetesTest() throws Exception {
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
@@ -50,33 +91,9 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void isRegistrarEntradaTest() throws Exception {
-		
-		MockHttpServletResponse response = mockMvc.perform(
-                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
-                		asJsonString(new Tiquete("L123", "400", TipoVehiculo.MOTO, new Date(), null, 0.00))
-                )).andReturn().getResponse();
-		
-		//assert
-		Assert.assertEquals(HttpStatus.CREATED.value(), response.getStatus());
-	}
-	
-	@Test
-	public void noRegistrarEntradaTest() throws Exception{
-		
-		MockHttpServletResponse response = mockMvc.perform(
-                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
-                		asJsonString(new Tiquete("L123", "400", TipoVehiculo.MOTO, new Date(), null, 0.00))
-                )).andDo(print()).andReturn().getResponse();
-		
-		//assert
-		Assert.assertEquals(HttpStatus.NOT_ACCEPTABLE.value(), response.getStatus());
-	}
-	
-	@Test
 	public void facturarTest() throws Exception{
 		//arrange
-		Tiquete tiquete = new Tiquete("L123", "400", TipoVehiculo.MOTO, new Date(), null, 0.00);
+		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.MOTO, new Date(), null, 0.00);
 		
 		MockHttpServletResponse response = mockMvc.perform(
                 put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON).content(

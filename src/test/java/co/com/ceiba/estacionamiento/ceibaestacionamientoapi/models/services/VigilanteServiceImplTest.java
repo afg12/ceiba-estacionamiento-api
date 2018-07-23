@@ -43,15 +43,33 @@ public class VigilanteServiceImplTest {
 	}
 	
 	@Test
+	public void isNoDisponibleParqueoCarro() {
+		// arrange
+		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.CARRO)).thenReturn(20);
+	    
+	    //act
+  		try {			
+  			vigilanteService.validarDisponibilidad(TipoVehiculo.CARRO);
+  			fail();
+  		} catch (VehiculoException e) {
+  			// assert
+  			Assert.assertEquals("No hay cupos disponibles", e.getMessage());
+  		}
+	}
+	
+	@Test
 	public void isNoDisponibleParqueoMoto() {
 		// arrange
 		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.MOTO)).thenReturn(10);
-		
-		//act
-	    boolean isDisponibleParqueo = vigilanteService.validarDisponibilidad(TipoVehiculo.MOTO);
 	    
-	    // assert
-	    Assert.assertFalse(isDisponibleParqueo);
+	    //act
+		try {			
+			vigilanteService.validarDisponibilidad(TipoVehiculo.MOTO);
+			fail();
+		} catch (VehiculoException e) {
+			// assert
+			Assert.assertEquals("No hay cupos disponibles", e.getMessage());
+		}
 	}
 	
 	@Test
@@ -107,6 +125,30 @@ public class VigilanteServiceImplTest {
 			// assert
 			Assert.assertEquals("Vehiculo se encuentra registrado", e.getMessage());
 		}
+	}
+	
+	@Test
+	public void validarDiaLunes() {
+		// arrange
+		Calendar calendar =  Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		
+		//act
+		boolean isvalidarDia = vigilanteService.validarDia(calendar.get(Calendar.DAY_OF_WEEK));
+
+		Assert.assertTrue(isvalidarDia);
+	}
+	
+	@Test
+	public void validarDiferenteDia() {
+		// arrange
+		Calendar calendar =  Calendar.getInstance();
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+		
+		//act
+		boolean isvalidarDia = vigilanteService.validarDia(calendar.get(Calendar.DAY_OF_WEEK));
+
+		Assert.assertFalse(isvalidarDia);
 	}
 	
 }

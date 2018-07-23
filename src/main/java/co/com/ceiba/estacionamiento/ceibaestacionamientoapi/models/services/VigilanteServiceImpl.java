@@ -28,9 +28,13 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	@Override
 	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
 		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
-
-		return ((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
-				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS));
+		
+		if(!((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
+				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS))) {
+			throw new VehiculoException("No hay cupos disponibles");
+		}
+		
+		return true;
 	}
 
 	@Override
@@ -41,11 +45,15 @@ public class VigilanteServiceImpl implements IVigilanteService{
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
 		
-		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && (dia == Calendar.SUNDAY || dia == Calendar.MONDAY)) {
-			throw new VehiculoException("Vehiculo no permitido");
+		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && validarDia(dia)) {
+				throw new VehiculoException("Vehiculo no permitido");
 		}
 		
 		return true;
+	}
+	
+	public boolean validarDia(int dia) {
+		return dia == Calendar.SUNDAY || dia == Calendar.MONDAY;
 	}
 
 }
