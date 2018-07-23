@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder;
+package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public class TiqueteCilindrajeMinimoBuilderTest {
+public class TiqueteCilindrajeMinimoBuilder {
 	
 	private static final String PLACA = "A426";
 	private static final String CILINDRAJE = "1000";
@@ -22,7 +22,7 @@ public class TiqueteCilindrajeMinimoBuilderTest {
 	private Date fechaSalida;
 	private Double total;
 	
-	public TiqueteCilindrajeMinimoBuilderTest() {
+	public TiqueteCilindrajeMinimoBuilder() {
 		this.placa = PLACA;
 		this.cilindraje = CILINDRAJE;
 		this.tipoVehiculo = TIPO_VEHICULO;
@@ -31,32 +31,32 @@ public class TiqueteCilindrajeMinimoBuilderTest {
 		this.total = TOTAL;
 	}
 
-	public TiqueteCilindrajeMinimoBuilderTest setPlaca(String placa) {
+	public TiqueteCilindrajeMinimoBuilder setPlaca(String placa) {
 		this.placa = placa;
 		return this;
 	}
 	
-	public TiqueteCilindrajeMinimoBuilderTest setCilindraje(String cilindraje) {
+	public TiqueteCilindrajeMinimoBuilder setCilindraje(String cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
-	public TiqueteCilindrajeMinimoBuilderTest setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public TiqueteCilindrajeMinimoBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 		return this;
 	}
 	
-	public TiqueteCilindrajeMinimoBuilderTest setFechaI(Date fechaIngreso) {
+	public TiqueteCilindrajeMinimoBuilder setFechaI(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 		return this;
 	}
 	
-	public TiqueteCilindrajeMinimoBuilderTest setFechaS(Date fechaSalida) {
+	public TiqueteCilindrajeMinimoBuilder setFechaS(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	
-	public TiqueteCilindrajeMinimoBuilderTest setTotal(Double total) {
+	public TiqueteCilindrajeMinimoBuilder setTotal(Double total) {
 		this.total = total;
 		return this;
 	}

@@ -11,12 +11,12 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder.TiqueteCarroDataBuilderTest;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder.TiqueteCilindrajeMinimoBuilderTest;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder.TiqueteHorasExtrasBuilderTest;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder.TiqueteMotoDataBuilderTest;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCarroDataBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCilindrajeMinimoBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteHorasExtrasBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteMotoDataBuilder;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 public class TiqueteServiceImplTest {
@@ -36,7 +36,7 @@ public class TiqueteServiceImplTest {
 	public void cantidadVehiculosParqueadosTest() {
 		// arrange
 		TipoVehiculo tipoVehiculo = TipoVehiculo.MOTO;
-		TiqueteMotoDataBuilderTest tiqueteMoto = new TiqueteMotoDataBuilderTest();
+		TiqueteMotoDataBuilder tiqueteMoto = new TiqueteMotoDataBuilder();
 		Tiquete tiquete = tiqueteMoto.build();
 		
 		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(tiquete.getTipoVehiculo())).thenReturn(1);
@@ -52,7 +52,7 @@ public class TiqueteServiceImplTest {
 	public void validarVehiculoTest() {
 		// arrange
 		String placa = "44474";
-		TiqueteCarroDataBuilderTest tiqueteCarro = new TiqueteCarroDataBuilderTest();
+		TiqueteCarroDataBuilder tiqueteCarro = new TiqueteCarroDataBuilder();
 		Tiquete tiquete = tiqueteCarro.build();
 		
 		Mockito.when(tiqueteRepository.findVehiculoByPlaca(tiquete.getPlaca())).thenReturn(tiquete);
@@ -74,7 +74,7 @@ public class TiqueteServiceImplTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteMotoDataBuilderTest().setFechaI(calendar.getTime()).build();
+		Tiquete tiquete = new TiqueteMotoDataBuilder().setFechaI(calendar.getTime()).build();
 		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
 		
 		//act
@@ -94,7 +94,7 @@ public class TiqueteServiceImplTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteCarroDataBuilderTest().setFechaI(calendar.getTime()).build();
+		Tiquete tiquete = new TiqueteCarroDataBuilder().setFechaI(calendar.getTime()).build();
 		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
 		
 		//act
@@ -107,7 +107,7 @@ public class TiqueteServiceImplTest {
 	@Test
 	public void calcularCostoMayorCilindrajeMinimo() {
 		// arrange
-		TiqueteCilindrajeMinimoBuilderTest tiqueteMoto = new TiqueteCilindrajeMinimoBuilderTest();
+		TiqueteCilindrajeMinimoBuilder tiqueteMoto = new TiqueteCilindrajeMinimoBuilder();
 		Tiquete tiquete = tiqueteMoto.build();
 		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
 		
@@ -128,7 +128,7 @@ public class TiqueteServiceImplTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteHorasExtrasBuilderTest().setFechaI(calendar.getTime()).build();
+		Tiquete tiquete = new TiqueteHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
 		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
 		
 		//act

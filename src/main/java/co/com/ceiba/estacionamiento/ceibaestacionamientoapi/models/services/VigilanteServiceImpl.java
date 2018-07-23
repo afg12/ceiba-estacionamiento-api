@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
@@ -17,24 +18,26 @@ public class VigilanteServiceImpl implements IVigilanteService{
 
 	private static final int CANT_CARROS = 20;
 	
+	ITiqueteDao tiqueteDao;
 	
 	@Autowired
-	ITiqueteService tiqueteService;
+	public VigilanteServiceImpl(ITiqueteDao tiqueteDao) {
+		this.tiqueteDao = tiqueteDao;
+	}
 	
 	@Override
 	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
-		int cantVehiculosParqueados = tiqueteService.cantParqueaderosDisponibles(tipoVehiculo);
+		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
 
 		return ((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
 				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS));
 	}
 
 	@Override
-	public boolean validarPlaca(String placa) {
-		Calendar cal = Calendar.getInstance();
-		int dia = cal.get(Calendar.DAY_OF_WEEK);
+	public boolean validarPlaca(String placa, Calendar calendar) {
+		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		
-		if(null!=tiqueteService.validarVehiculo(placa)) {
+		if(null!=tiqueteDao.findVehiculoByPlaca(placa)) {
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
 		

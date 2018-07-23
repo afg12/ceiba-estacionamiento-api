@@ -1,6 +1,7 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers;
 
 
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,8 @@ public class ParqueaderoRestController {
 	
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
 	public ResponseEntity<Tiquete> registrarEntrada(@RequestBody Tiquete tiquete) {
-		if(!vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) || !vigilanteService.validarPlaca(tiquete.getPlaca())) {
+		Calendar calendar = Calendar.getInstance();
+		if(!vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) || !vigilanteService.validarPlaca(tiquete.getPlaca(), calendar)) {
 			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		

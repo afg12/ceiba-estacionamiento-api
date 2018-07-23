@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder;
+package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public class TiqueteCarroDataBuilderTest {
+public class TiqueteCarroDataBuilder {
 	private static final String PLACA = "44474";
 	private static final String CILINDRAJE = null;
 	private static final TipoVehiculo TIPO_VEHICULO = TipoVehiculo.CARRO;
@@ -21,7 +21,7 @@ public class TiqueteCarroDataBuilderTest {
 	private Date fechaSalida;
 	private Double total;
 	
-	public TiqueteCarroDataBuilderTest() {
+	public TiqueteCarroDataBuilder() {
 		this.placa = PLACA;
 		this.cilindraje = CILINDRAJE;
 		this.tipoVehiculo = TIPO_VEHICULO;
@@ -30,32 +30,32 @@ public class TiqueteCarroDataBuilderTest {
 		this.total = TOTAL;
 	}
 	
-	public TiqueteCarroDataBuilderTest setPlaca(String placa) {
+	public TiqueteCarroDataBuilder setPlaca(String placa) {
 		this.placa = placa;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilderTest setCilindraje(String cilindraje) {
+	public TiqueteCarroDataBuilder setCilindraje(String cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilderTest setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public TiqueteCarroDataBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilderTest setFechaI(Date fechaIngreso) {
+	public TiqueteCarroDataBuilder setFechaI(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilderTest setFechaS(Date fechaSalida) {
+	public TiqueteCarroDataBuilder setFechaS(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilderTest setTotal(Double total) {
+	public TiqueteCarroDataBuilder setTotal(Double total) {
 		this.total = total;
 		return this;
 	}

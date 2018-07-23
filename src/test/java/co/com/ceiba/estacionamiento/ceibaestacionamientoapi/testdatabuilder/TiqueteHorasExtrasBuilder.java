@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder;
+package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public class TiqueteHorasExtrasBuilderTest {
+public class TiqueteHorasExtrasBuilder {
 	
 	private static final String PLACA = "44474";
 	private static final String CILINDRAJE = null;
@@ -22,7 +22,7 @@ public class TiqueteHorasExtrasBuilderTest {
 	private Date fechaSalida;
 	private Double total;
 	
-	public TiqueteHorasExtrasBuilderTest() {
+	public TiqueteHorasExtrasBuilder() {
 		this.placa = PLACA;
 		this.cilindraje = CILINDRAJE;
 		this.tipoVehiculo = TIPO_VEHICULO;
@@ -31,32 +31,32 @@ public class TiqueteHorasExtrasBuilderTest {
 		this.total = TOTAL;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setPlaca(String placa) {
+	public TiqueteHorasExtrasBuilder setPlaca(String placa) {
 		this.placa = placa;
 		return this;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setCilindraje(String cilindraje) {
+	public TiqueteHorasExtrasBuilder setCilindraje(String cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public TiqueteHorasExtrasBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 		return this;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setFechaI(Date fechaIngreso) {
+	public TiqueteHorasExtrasBuilder setFechaI(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 		return this;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setFechaS(Date fechaSalida) {
+	public TiqueteHorasExtrasBuilder setFechaS(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	
-	public TiqueteHorasExtrasBuilderTest setTotal(Double total) {
+	public TiqueteHorasExtrasBuilder setTotal(Double total) {
 		this.total = total;
 		return this;
 	}

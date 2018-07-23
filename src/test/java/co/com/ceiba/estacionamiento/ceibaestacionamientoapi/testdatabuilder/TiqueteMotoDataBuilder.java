@@ -1,4 +1,4 @@
-package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.builder;
+package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public class TiqueteMotoDataBuilderTest {
+public class TiqueteMotoDataBuilder {
 
 	private static final String PLACA = "A426";
 	private static final String CILINDRAJE = "500";
@@ -22,7 +22,7 @@ public class TiqueteMotoDataBuilderTest {
 	private Date fechaSalida;
 	private Double total;
 	
-	public TiqueteMotoDataBuilderTest() {
+	public TiqueteMotoDataBuilder() {
 		this.placa = PLACA;
 		this.cilindraje = CILINDRAJE;
 		this.tipoVehiculo = TIPO_VEHICULO;
@@ -31,32 +31,32 @@ public class TiqueteMotoDataBuilderTest {
 		this.total = TOTAL;
 	}
 
-	public TiqueteMotoDataBuilderTest setPlaca(String placa) {
+	public TiqueteMotoDataBuilder setPlaca(String placa) {
 		this.placa = placa;
 		return this;
 	}
 	
-	public TiqueteMotoDataBuilderTest setCilindraje(String cilindraje) {
+	public TiqueteMotoDataBuilder setCilindraje(String cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
-	public TiqueteMotoDataBuilderTest setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public TiqueteMotoDataBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 		return this;
 	}
 	
-	public TiqueteMotoDataBuilderTest setFechaI(Date fechaIngreso) {
+	public TiqueteMotoDataBuilder setFechaI(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 		return this;
 	}
 	
-	public TiqueteMotoDataBuilderTest setFechaS(Date fechaSalida) {
+	public TiqueteMotoDataBuilder setFechaS(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	
-	public TiqueteMotoDataBuilderTest setTotal(Double total) {
+	public TiqueteMotoDataBuilder setTotal(Double total) {
 		this.total = total;
 		return this;
 	}
