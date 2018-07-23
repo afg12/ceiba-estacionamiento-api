@@ -9,6 +9,9 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
@@ -20,6 +23,8 @@ import org.springframework.web.client.RestTemplate;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
+@SpringBootTest(classes=ParqueaderoRestControllerTest.class, webEnvironment = WebEnvironment.DEFINED_PORT )
+@PropertySource("classpath:application.properties")
 public class ParqueaderoRestControllerTest {
 	
 	public static final String REST_SERVICE_URI = "http://localhost:8080/parqueadero";
