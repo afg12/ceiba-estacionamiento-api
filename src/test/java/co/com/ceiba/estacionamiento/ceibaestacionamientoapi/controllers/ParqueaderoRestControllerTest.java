@@ -28,7 +28,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = CeibaEstacionamientoApiApplication.class, webEnvironment = WebEnvironment.RANDOM_PORT)
-@TestPropertySource(locations = "classpath:application-test.properties")
+@TestPropertySource(locations = "classpath:application.properties")
 public class ParqueaderoRestControllerTest {
 	
 	public static final String REST_SERVICE_URI = "http://localhost:8080/parqueadero";
