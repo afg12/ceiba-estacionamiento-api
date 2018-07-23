@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-23T15:59:27" hostname="ANDREA-FLOREZ" time="0.521">
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-23T16:20:45" hostname="ANDREA-FLOREZ" time="0.521">
   <properties/>
-  <testcase name="cantidadVehiculosParqueadosTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.515"/>
+  <testcase name="cantidadVehiculosParqueadosTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.516"/>
   <testcase name="calcularCostoMenorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
   <testcase name="calcularCostoMayorCilindrajeMinimo" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
   <testcase name="calcularCostoHoras" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
