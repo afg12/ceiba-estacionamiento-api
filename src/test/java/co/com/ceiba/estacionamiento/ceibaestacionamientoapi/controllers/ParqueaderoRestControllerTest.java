@@ -9,21 +9,23 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-@SpringBootTest(classes=ParqueaderoRestControllerTest.class, webEnvironment = WebEnvironment.DEFINED_PORT )
+@RunWith(SpringRunner.class)
+@SpringBootTest
 @PropertySource("classpath:application.properties")
 public class ParqueaderoRestControllerTest {
 	
