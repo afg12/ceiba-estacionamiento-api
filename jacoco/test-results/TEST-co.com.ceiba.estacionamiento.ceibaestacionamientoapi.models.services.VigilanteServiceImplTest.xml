@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-07-23T16:39:34" hostname="ANDREA-FLOREZ" time="0.003">
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-07-23T19:12:36" hostname="ANDREA-FLOREZ" time="0.002">
   <properties/>
-  <testcase name="validarVehiculoRegistrado" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.001"/>
-  <testcase name="isPlacaPermitida" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.0"/>
+  <testcase name="validarVehiculoRegistrado" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.0"/>
+  <testcase name="isPlacaPermitida" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.001"/>
   <testcase name="isNoDisponibleParqueoMoto" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.0"/>
-  <testcase name="validarPlacaConA" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.0"/>
+  <testcase name="validarPlacaConA" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.001"/>
   <testcase name="isDisponibleParqueoMoto" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImplTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
