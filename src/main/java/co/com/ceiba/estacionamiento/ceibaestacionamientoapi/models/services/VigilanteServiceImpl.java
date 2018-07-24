@@ -4,6 +4,7 @@ import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
@@ -26,6 +27,7 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	}
 	
 	@Override
+	@Transactional(readOnly=true)
 	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
 		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
 		
@@ -38,6 +40,7 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public boolean validarPlaca(String placa, Calendar calendar) {
 		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		

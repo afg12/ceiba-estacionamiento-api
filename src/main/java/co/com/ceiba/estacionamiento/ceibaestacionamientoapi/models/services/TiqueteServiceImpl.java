@@ -102,6 +102,7 @@ public class TiqueteServiceImpl implements ITiqueteService{
 	}
 
 	@Override
+	@Transactional(readOnly=true)
 	public Tiquete validarVehiculo(String placa) {
 		return tiqueteDao.findVehiculoByPlaca(placa);
 	}
