@@ -44,9 +44,8 @@ public class VigilanteServiceImpl implements IVigilanteService{
 		if(null!=tiqueteDao.findVehiculoByPlaca(placa)) {
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
-		System.out.println("validar placa"+placa.substring(0, 1)+" dia"+dia);
-		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && validarDia(dia)) {
-			System.out.println("entro validar placa");
+		System.out.println("dia"+dia+"placa"+placa.substring(0, 1));
+		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && !validarDia(dia)) {
 				throw new VehiculoException("Vehiculo no permitido");
 		}
 		

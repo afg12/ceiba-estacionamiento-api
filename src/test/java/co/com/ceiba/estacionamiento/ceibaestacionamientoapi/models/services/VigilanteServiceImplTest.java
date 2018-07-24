@@ -93,7 +93,7 @@ public class VigilanteServiceImplTest {
 		// arrange
 		String placa ="AWD345";
 		Calendar calendar =  Calendar.getInstance();
-		calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		
 		Tiquete tiquete = new TiqueteCarroDataBuilder().setPlaca(placa).build();
 

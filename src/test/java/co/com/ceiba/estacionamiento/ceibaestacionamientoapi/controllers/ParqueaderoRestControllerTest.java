@@ -64,7 +64,7 @@ public class ParqueaderoRestControllerTest {
 		//act
 		MockHttpServletResponse response = mockMvc.perform(
                 post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
-                		asJsonString(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00))
+                		asJsonString(new Tiquete("DFG567", "1400", TipoVehiculo.CARRO, new Date(), null, 0.00))
                 )).andDo(print()).andReturn().getResponse();
 		
 		//assert
@@ -92,6 +92,26 @@ public class ParqueaderoRestControllerTest {
 		
 		//assert
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
+	}
+	
+	@Test
+	public void buscarTiqueteTest() throws Exception {
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", 1L).accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
+	}
+	
+	@Test
+	public void tiqueteNoEncontradoTest() throws Exception {
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", -1L).accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
 	}
 	
 	private static String asJsonString(final Object obj) {

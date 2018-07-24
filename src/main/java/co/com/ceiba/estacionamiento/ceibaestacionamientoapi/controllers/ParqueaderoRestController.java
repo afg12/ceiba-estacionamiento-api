@@ -34,6 +34,7 @@ public class ParqueaderoRestController {
 		if(vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) && vigilanteService.validarPlaca(tiquete.getPlaca(), calendar)) {
 			tiqueteService.save(tiquete);
 		}
+
 		return new ResponseEntity<>(tiquete, HttpStatus.CREATED);
 	}
 	
@@ -53,6 +54,16 @@ public class ParqueaderoRestController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
 		return new ResponseEntity<>(tiquetes, HttpStatus.OK);
+
+	}
+	
+	@GetMapping(value="/tiquete/{id}")
+	public ResponseEntity<Tiquete> buscarTiquete(@PathVariable Long id) {
+		Tiquete tiquete = tiqueteService.buscarVehiculoRegistrado(id);
+        if (null==tiquete) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+		return new ResponseEntity<>(tiquete, HttpStatus.OK);
 
 	}
 }
