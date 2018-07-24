@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-23T22:19:21" hostname="ANDREA-FLOREZ" time="0.448">
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-07-24T12:53:33" hostname="ANDREA-FLOREZ" time="0.521">
   <properties/>
-  <testcase name="cantidadVehiculosParqueadosTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.443"/>
-  <testcase name="calcularCostoMenorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
+  <testcase name="cantidadVehiculosParqueadosTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.517"/>
+  <testcase name="calcularCostoMenorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.0"/>
   <testcase name="calcularCostoMayorCilindrajeMinimo" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
-  <testcase name="calcularCostoHoras" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.0"/>
+  <testcase name="calcularCostoHoras" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
   <testcase name="validarVehiculoTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
-  <testcase name="calcularCostoMayorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
+  <testcase name="calcularCostoMayorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

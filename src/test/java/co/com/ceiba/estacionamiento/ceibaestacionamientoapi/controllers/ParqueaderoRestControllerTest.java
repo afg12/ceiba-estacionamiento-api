@@ -60,22 +60,6 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void validarPlacaRegistroTest() throws Exception {
-		//assert
-		Calendar calendar =  Calendar.getInstance();
-		calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
-		
-		//act
-		MockHttpServletResponse response = mockMvc.perform(
-                post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
-                		asJsonString(new Tiquete("ADF456", null, TipoVehiculo.CARRO, calendar.getTime(), null, 0.00))
-                )).andDo(print()).andReturn().getResponse();
-		
-		//assert
-		Assert.assertEquals(HttpStatus.NOT_ACCEPTABLE.value(), response.getStatus());
-	}
-	
-	@Test
 	public void validarVehiculoRegistroTest() throws Exception{
 		//act
 		MockHttpServletResponse response = mockMvc.perform(

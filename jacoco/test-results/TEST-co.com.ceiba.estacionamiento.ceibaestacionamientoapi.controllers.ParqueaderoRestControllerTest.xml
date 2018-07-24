@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2018-07-23T22:19:20" hostname="ANDREA-FLOREZ" time="0.53">
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-24T12:53:33" hostname="ANDREA-FLOREZ" time="0.505">
   <properties/>
-  <testcase name="listarTiquetesTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.273"/>
-  <testcase name="facturarTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.123"/>
-  <testcase name="validarPlacaRegistroTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.09"/>
-  <testcase name="isRegistrarEntradaTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.026"/>
-  <testcase name="validarVehiculoRegistroTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.015"/>
-  <system-out><![CDATA[2018-07-23 17:19:19.202  INFO 23952 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest], using SpringBootContextLoader
-2018-07-23 17:19:19.203  INFO 23952 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-2018-07-23 17:19:19.219  INFO 23952 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
-2018-07-23 17:19:19.220  INFO 23952 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@574a972e, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@2eba6b86, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@558abb31, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@7ff0e57e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7c00fe49, org.springframework.test.context.transaction.TransactionalTestExecutionListener@19b4c14, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1482c25, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@796bf267, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@2e2b9b5, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@59c2ae11, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@192b9808, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3ff5a980]
+  <testcase name="listarTiquetesTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.266"/>
+  <testcase name="facturarTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.099"/>
+  <testcase name="isRegistrarEntradaTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.113"/>
+  <testcase name="validarVehiculoRegistroTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest" time="0.025"/>
+  <system-out><![CDATA[2018-07-24 07:53:31.586  INFO 15104 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest], using SpringBootContextLoader
+2018-07-24 07:53:31.587  INFO 15104 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2018-07-24 07:53:31.600  INFO 15104 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2018-07-24 07:53:31.601  INFO 15104 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@7826e2c3, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1dd6f95, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@4e6cae10, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@307fef24, org.springframework.test.context.support.DirtiesContextTestExecutionListener@7f002312, org.springframework.test.context.transaction.TransactionalTestExecutionListener@15cb4aa0, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3e7c7a27, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@71b5a403, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@fd30194, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4002d484, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1df233e1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@41bb19e0]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -19,47 +18,47 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.0.3.RELEASE)
 
-2018-07-23 17:19:19.255  INFO 23952 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : Starting ParqueaderoRestControllerTest on ANDREA-FLOREZ with PID 23952 (started by andrea.florez in D:\ceiba-estacionamiento-api)
-2018-07-23 17:19:19.256  INFO 23952 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : No active profile set, falling back to default profiles: default
-2018-07-23 17:19:19.258  INFO 23952 --- [    Test worker] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@28909078: startup date [Mon Jul 23 17:19:19 COT 2018]; root of context hierarchy
-2018-07-23 17:19:19.571  INFO 23952 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$99d707ff] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2018-07-23 17:19:19.808  INFO 23952 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
-2018-07-23 17:19:19.852  INFO 23952 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2018-07-23 17:19:19.853  INFO 23952 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
-2018-07-23 17:19:19.868  INFO 23952 --- [ost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_171/bin/server;C:/Program Files/Java/jre1.8.0_171/bin;C:/Program Files/Java/jre1.8.0_171/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Oracle\product\11.1.0\client_1\bin;C:\Program Files\CollabNet\Subversion Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Users\andrea.florez\AppData\Local\Microsoft\WindowsApps;;D:\eclipse\jee-oxygen\eclipse;;.]
-2018-07-23 17:19:20.019  INFO 23952 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2018-07-23 17:19:20.020  INFO 23952 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 762 ms
-2018-07-23 17:19:20.147  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
-2018-07-23 17:19:20.149  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2/*]
-2018-07-23 17:19:20.152  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
-2018-07-23 17:19:20.153  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
-2018-07-23 17:19:20.153  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
-2018-07-23 17:19:20.153  INFO 23952 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
-2018-07-23 17:19:20.271  INFO 23952 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2018-07-23 17:19:20.273  INFO 23952 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2018-07-23 17:19:20.292  INFO 23952 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2018-07-23 17:19:20.293  INFO 23952 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+2018-07-24 07:53:31.637  INFO 15104 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : Starting ParqueaderoRestControllerTest on ANDREA-FLOREZ with PID 15104 (started by andrea.florez in D:\ceiba-estacionamiento-api)
+2018-07-24 07:53:31.638  INFO 15104 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : No active profile set, falling back to default profiles: default
+2018-07-24 07:53:31.641  INFO 15104 --- [    Test worker] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46d1268f: startup date [Tue Jul 24 07:53:31 COT 2018]; root of context hierarchy
+2018-07-24 07:53:31.954  INFO 15104 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7d95cebd] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-07-24 07:53:32.199  INFO 15104 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2018-07-24 07:53:32.250  INFO 15104 --- [    Test worker] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-07-24 07:53:32.251  INFO 15104 --- [    Test worker] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.31
+2018-07-24 07:53:32.265  INFO 15104 --- [ost-startStop-1] o.a.catalina.core.AprLifecycleListener   : The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_171\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:/Program Files/Java/jre1.8.0_171/bin/server;C:/Program Files/Java/jre1.8.0_171/bin;C:/Program Files/Java/jre1.8.0_171/lib/amd64;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS\;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS\;C:\Oracle\product\11.1.0\client_1\bin;C:\Program Files\CollabNet\Subversion Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\TortoiseSVN\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\PuTTY\;C:\Users\andrea.florez\AppData\Local\Microsoft\WindowsApps;;D:\eclipse\jee-oxygen\eclipse;;.]
+2018-07-24 07:53:32.441  INFO 15104 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-07-24 07:53:32.442  INFO 15104 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 801 ms
+2018-07-24 07:53:32.556  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-07-24 07:53:32.558  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2/*]
+2018-07-24 07:53:32.562  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-07-24 07:53:32.563  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-07-24 07:53:32.563  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-07-24 07:53:32.563  INFO 15104 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-07-24 07:53:32.672  INFO 15104 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2018-07-24 07:53:32.675  INFO 15104 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2018-07-24 07:53:32.692  INFO 15104 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-07-24 07:53:32.692  INFO 15104 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
 	name: default
 	...]
-2018-07-23 17:19:20.304  INFO 23952 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2018-07-23 17:19:20.347  INFO 23952 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/D:/ceiba-estacionamiento-api/build/resources/main/import.sql)'
-2018-07-23 17:19:20.352  INFO 23952 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2018-07-23 17:19:20.421  INFO 23952 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
-2018-07-23 17:19:20.509  INFO 23952 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-07-23 17:19:20.646  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@28909078: startup date [Mon Jul 23 17:19:19 COT 2018]; root of context hierarchy
-2018-07-23 17:19:20.651  WARN 23952 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2018-07-23 17:19:20.668  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/listar],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete>> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.listarVehiculos()
-2018-07-23 17:19:20.669  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/registrar],methods=[POST]}" onto public org.springframework.http.ResponseEntity<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.registrarEntrada(co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete)
-2018-07-23 17:19:20.670  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/facturar/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.generarTiquete(java.lang.Long)
-2018-07-23 17:19:20.673  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
-2018-07-23 17:19:20.673  INFO 23952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
-2018-07-23 17:19:20.693  INFO 23952 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-07-23 17:19:20.693  INFO 23952 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
-2018-07-23 17:19:20.867  INFO 23952 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet ''
-2018-07-23 17:19:20.868  INFO 23952 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
-2018-07-23 17:19:20.885  INFO 23952 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 17 ms
-2018-07-23 17:19:20.955  INFO 23952 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 63540 (http) with context path ''
-2018-07-23 17:19:20.957  INFO 23952 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : Started ParqueaderoRestControllerTest in 1.733 seconds (JVM running for 10.016)
+2018-07-24 07:53:32.702  INFO 15104 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-07-24 07:53:32.740  INFO 15104 --- [    Test worker] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'ScriptSourceInputFromUrl(file:/D:/ceiba-estacionamiento-api/build/resources/main/import.sql)'
+2018-07-24 07:53:32.744  INFO 15104 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-07-24 07:53:32.799  INFO 15104 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2018-07-24 07:53:32.868  INFO 15104 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-24 07:53:32.995  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@46d1268f: startup date [Tue Jul 24 07:53:31 COT 2018]; root of context hierarchy
+2018-07-24 07:53:33.000  WARN 15104 --- [    Test worker] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-07-24 07:53:33.015  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/registrar],methods=[POST]}" onto public org.springframework.http.ResponseEntity<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.registrarEntrada(co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete)
+2018-07-24 07:53:33.016  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/listar],methods=[GET]}" onto public org.springframework.http.ResponseEntity<java.util.List<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete>> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.listarVehiculos()
+2018-07-24 07:53:33.016  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/parqueadero/facturar/{id}],methods=[PUT]}" onto public org.springframework.http.ResponseEntity<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.generarTiquete(java.lang.Long)
+2018-07-24 07:53:33.019  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-07-24 07:53:33.020  INFO 15104 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-07-24 07:53:33.038  INFO 15104 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-24 07:53:33.038  INFO 15104 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-07-24 07:53:33.188  INFO 15104 --- [    Test worker] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet ''
+2018-07-24 07:53:33.188  INFO 15104 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2018-07-24 07:53:33.206  INFO 15104 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 18 ms
+2018-07-24 07:53:33.277  INFO 15104 --- [    Test worker] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 64340 (http) with context path ''
+2018-07-24 07:53:33.279  INFO 15104 --- [    Test worker] .c.c.e.c.c.ParqueaderoRestControllerTest : Started ParqueaderoRestControllerTest in 1.674 seconds (JVM running for 9.794)
 
 MockHttpServletRequest:
       HTTP Method = GET
@@ -103,7 +102,7 @@ MockHttpServletRequest:
       Request URI = /parqueadero/facturar/1
        Parameters = {}
           Headers = {Content-Type=[application/json;charset=UTF-8]}
-             Body = {"id":null,"placa":"LTY123","cilindraje":null,"tipoVehiculo":"MOTO","fechaIngreso":1532384361236,"fechaSalida":null,"total":0.0}
+             Body = {"id":null,"placa":"LTY123","cilindraje":null,"tipoVehiculo":"MOTO","fechaIngreso":1532436813552,"fechaSalida":null,"total":0.0}
     Session Attrs = {}
 
 Handler:
@@ -130,54 +129,18 @@ MockHttpServletResponse:
     Error message = null
           Headers = {Content-Type=[application/json;charset=UTF-8]}
      Content type = application/json;charset=UTF-8
-             Body = {"id":1,"placa":"DFG567","cilindraje":"1400","tipoVehiculo":"MOTO","fechaIngreso":"2018-07-17T18:00:52.690+0000","fechaSalida":"2018-07-23T22:19:21.297+0000","total":7600.0}
+             Body = {"id":1,"placa":"DFG567","cilindraje":"1400","tipoVehiculo":"MOTO","fechaIngreso":"2018-07-17T18:00:52.690+0000","fechaSalida":"2018-07-24T12:53:33.607+0000","total":6200.0}
     Forwarded URL = null
    Redirected URL = null
           Cookies = []
+validar placaL dia3
 
 MockHttpServletRequest:
       HTTP Method = POST
       Request URI = /parqueadero/registrar
        Parameters = {}
           Headers = {Content-Type=[application/json;charset=UTF-8]}
-             Body = {"id":null,"placa":"ADF456","cilindraje":null,"tipoVehiculo":"CARRO","fechaIngreso":1532384361360,"fechaSalida":null,"total":0.0}
-    Session Attrs = {}
-
-Handler:
-             Type = co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController
-           Method = public org.springframework.http.ResponseEntity<co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete> co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers.ParqueaderoRestController.registrarEntrada(co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete)
-
-Async:
-    Async started = false
-     Async result = null
-
-Resolved Exception:
-             Type = co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException
-
-ModelAndView:
-        View name = null
-             View = null
-            Model = null
-
-FlashMap:
-       Attributes = null
-
-MockHttpServletResponse:
-           Status = 406
-    Error message = null
-          Headers = {}
-     Content type = null
-             Body = 
-    Forwarded URL = null
-   Redirected URL = null
-          Cookies = []
-
-MockHttpServletRequest:
-      HTTP Method = POST
-      Request URI = /parqueadero/registrar
-       Parameters = {}
-          Headers = {Content-Type=[application/json;charset=UTF-8]}
-             Body = {"id":null,"placa":"LTY123","cilindraje":null,"tipoVehiculo":"CARRO","fechaIngreso":1532384361478,"fechaSalida":null,"total":0.0}
+             Body = {"id":null,"placa":"LTY123","cilindraje":null,"tipoVehiculo":"CARRO","fechaIngreso":1532436813765,"fechaSalida":null,"total":0.0}
     Session Attrs = {}
 
 Handler:
