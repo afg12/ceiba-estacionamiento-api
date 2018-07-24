@@ -31,11 +31,9 @@ public class ParqueaderoRestController {
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
 	public ResponseEntity<Tiquete> registrarEntrada(@RequestBody Tiquete tiquete) {
 		Calendar calendar = Calendar.getInstance();
-		if(!vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) || !vigilanteService.validarPlaca(tiquete.getPlaca(), calendar)) {
-			return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
+		if(vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) && vigilanteService.validarPlaca(tiquete.getPlaca(), calendar)) {
+			tiqueteService.save(tiquete);
 		}
-		
-		tiqueteService.save(tiquete);
 		return new ResponseEntity<>(tiquete, HttpStatus.CREATED);
 	}
 	

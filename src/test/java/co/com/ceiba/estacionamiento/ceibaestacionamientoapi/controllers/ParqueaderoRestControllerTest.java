@@ -1,5 +1,7 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.controllers;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
@@ -7,6 +9,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -25,7 +28,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.CeibaEstacionamientoApiApplication;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImpl;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.VigilanteServiceImpl;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @RunWith(SpringRunner.class)
