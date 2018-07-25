@@ -93,7 +93,8 @@ public class ParqueaderoRestControllerTest {
 	public void facturarTest() throws Exception{
 		
 		MockHttpServletResponse response = mockMvc.perform(
-                put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON)).andDo(print()).andReturn().getResponse();
+                put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON).
+                content(asJsonString(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00)))).andDo(print()).andReturn().getResponse();
 		
 		//assert
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());

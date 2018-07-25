@@ -41,10 +41,10 @@ public class ParqueaderoRestController {
 	}
 	
 	@RequestMapping(value="/facturar/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Tiquete> generarTiquete(@PathVariable Long id) {
-		Tiquete tiquete = tiqueteService.buscarVehiculoRegistrado(id);
-		tiquete.setTotal(tiqueteService.calcularCosto(tiquete));
-		tiqueteService.save(tiquete);
+	public ResponseEntity<Tiquete> generarTiquete(@PathVariable Long id, @RequestBody Tiquete tiquete) {
+		Tiquete tiqueteEncontrado = tiqueteService.buscarVehiculoRegistrado(id);
+		tiqueteEncontrado.setTotal(tiqueteService.calcularCosto(tiquete));
+		tiqueteService.save(tiqueteEncontrado);
 		
 		return new ResponseEntity<>(tiquete, HttpStatus.OK);
 	}

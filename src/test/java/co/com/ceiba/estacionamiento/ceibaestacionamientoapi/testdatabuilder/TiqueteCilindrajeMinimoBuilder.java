@@ -13,7 +13,7 @@ public class TiqueteCilindrajeMinimoBuilder {
 	private static final TipoVehiculo TIPO_VEHICULO = TipoVehiculo.MOTO;
 	private static final Date FECHA_INGRESO = Calendar.getInstance().getTime();
 	private static final Date FECHA_SALIDA = null;
-	private static final Double TOTAL = 2000.00;
+	private static final Double TOTAL = 2500.00;
 	
 	private String placa;	
 	private String cilindraje;

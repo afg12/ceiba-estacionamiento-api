@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
@@ -29,8 +30,12 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	@Override
 	@Transactional(readOnly=true)
 	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
-		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
+		if(null == tipoVehiculo) {
+			throw new CamposObligatoriosException("Los campos con * son obligatorios");
+		}
 		
+		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
+
 		if(!((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
 				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS))) {
 			throw new VehiculoException("No hay cupos disponibles");
@@ -42,6 +47,10 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	@Override
 	@Transactional(readOnly=true)
 	public boolean validarPlaca(String placa, Calendar calendar) {
+		if(placa.isEmpty()) {
+			throw new CamposObligatoriosException("Los campos con * son obligatorios");
+		}
+		
 		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		
 		if(null!=tiqueteDao.findVehiculoByPlaca(placa)) {

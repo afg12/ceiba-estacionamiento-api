@@ -11,6 +11,7 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
@@ -149,6 +150,35 @@ public class VigilanteServiceImplTest {
 		boolean isvalidarDia = vigilanteService.validarDia(calendar.get(Calendar.DAY_OF_WEEK));
 
 		Assert.assertFalse(isvalidarDia);
+	}
+	
+	@Test
+	public void validarTipoVehiculoObligatorio() {
+		// arrange
+		TipoVehiculo tipoVehiculo = null;
+		
+		try {
+			//act
+			vigilanteService.validarDisponibilidad(tipoVehiculo);
+			fail();
+		} catch(CamposObligatoriosException e) {	
+			Assert.assertEquals("Los campos con * son obligatorios", e.getMessage());
+		}
+	}
+	
+	@Test
+	public void validarPlacaObligatorio() {
+		// arrange
+		String placa = "";
+		Calendar calendar =  Calendar.getInstance();
+		
+		try {
+			//act
+			vigilanteService.validarPlaca(placa, calendar);
+			fail();
+		} catch(CamposObligatoriosException e) {	
+			Assert.assertEquals("Los campos con * son obligatorios", e.getMessage());
+		}
 	}
 	
 }
