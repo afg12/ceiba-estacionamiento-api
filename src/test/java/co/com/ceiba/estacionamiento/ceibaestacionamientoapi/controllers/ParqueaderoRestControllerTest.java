@@ -100,26 +100,6 @@ public class ParqueaderoRestControllerTest {
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
 	}
 	
-	@Test
-	public void buscarTiqueteTest() throws Exception {
-		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", 1L).accept(MediaType.APPLICATION_JSON))
-			.andDo(print()).andReturn().getResponse();
-		
-		//assert
-		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
-	}
-	
-	@Test
-	public void tiqueteNoEncontradoTest() throws Exception {
-		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", -1L).accept(MediaType.APPLICATION_JSON))
-			.andDo(print()).andReturn().getResponse();
-		
-		//assert
-		Assert.assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
-	}
-	
 	private static String asJsonString(final Object obj) {
 	    try {
 	        final ObjectMapper mapper = new ObjectMapper();

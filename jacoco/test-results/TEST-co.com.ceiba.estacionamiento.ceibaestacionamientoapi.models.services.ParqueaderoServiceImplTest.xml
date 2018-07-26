@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2018-07-26T21:47:54" hostname="ANDREA-FLOREZ" time="0.655">
+  <properties/>
+  <testcase name="validarDiferenteDia" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.63"/>
+  <testcase name="validarVehiculoRegistrado" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.02"/>
+  <testcase name="isPlacaPermitida" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="isNoDisponibleParqueoMoto" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarPlacaObligatorio" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarTipoVehiculoObligatorio" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarPlacaConA" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="isDisponibleParqueoMoto" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="isNoDisponibleParqueoCarro" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarDiaLunes" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
