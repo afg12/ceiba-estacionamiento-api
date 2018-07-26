@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ITiqueteService;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IVigilanteService;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IParqueaderoService;
 
 @CrossOrigin(origins= {"http://localhost:4200"})
 @RestController
@@ -28,12 +28,12 @@ public class ParqueaderoRestController {
 	private ITiqueteService tiqueteService;
 	
 	@Autowired
-	private IVigilanteService vigilanteService;
+	private IParqueaderoService parqueaderoService;
 	
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
 	public ResponseEntity<Tiquete> registrarEntrada(@RequestBody Tiquete tiquete) {
 		Calendar calendar = Calendar.getInstance();
-		if(vigilanteService.validarDisponibilidad(tiquete.getTipoVehiculo()) && vigilanteService.validarPlaca(tiquete.getPlaca(), calendar)) {
+		if(parqueaderoService.validarDisponibilidad(tiquete.getTipoVehiculo()) && parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar)) {
 			tiqueteService.save(tiquete);
 		}
 

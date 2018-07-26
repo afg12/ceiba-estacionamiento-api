@@ -12,7 +12,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteD
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
-public class VigilanteServiceImpl implements IVigilanteService{
+public class ParqueaderoServiceImpl implements IParqueaderoService{
 	
 	private static final String PLACA_NO_PERMITIDA = "A";
 	
@@ -23,7 +23,7 @@ public class VigilanteServiceImpl implements IVigilanteService{
 	ITiqueteDao tiqueteDao;
 	
 	@Autowired
-	public VigilanteServiceImpl(ITiqueteDao tiqueteDao) {
+	public ParqueaderoServiceImpl(ITiqueteDao tiqueteDao) {
 		this.tiqueteDao = tiqueteDao;
 	}
 	

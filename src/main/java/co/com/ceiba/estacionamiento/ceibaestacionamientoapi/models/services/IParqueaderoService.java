@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public interface IVigilanteService {
+public interface IParqueaderoService {
 	
 	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo);
 	
