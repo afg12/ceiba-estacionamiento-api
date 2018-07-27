@@ -33,9 +33,10 @@ public class ParqueaderoRestController {
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
 	public ResponseEntity<Tiquete> registrarEntrada(@RequestBody Tiquete tiquete) {
 		Calendar calendar = Calendar.getInstance();
-		if(parqueaderoService.validarDisponibilidad(tiquete.getTipoVehiculo()) && parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar)) {
-			tiqueteService.save(tiquete);
-		}
+		parqueaderoService.validarDisponibilidad(tiquete.getTipoVehiculo());
+		parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar);
+			
+		tiqueteService.save(tiquete);
 
 		return new ResponseEntity<>(tiquete, HttpStatus.CREATED);
 	}
