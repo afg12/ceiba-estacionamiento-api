@@ -94,7 +94,7 @@ public class ParqueaderoRestControllerTest {
 		MockHttpServletResponse response = mockMvc.perform(
                 put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON).
                 content(asJsonString(tiquete))).andDo(print()).andReturn().getResponse();
-		System.out.println();
+
 		//assert
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
 	}
