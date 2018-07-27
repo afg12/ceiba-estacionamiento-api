@@ -86,6 +86,33 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
+	public void buscarTiqueteTest() throws Exception {
+		//arrange
+		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
+		when(tiqueteService.buscarVehiculoRegistrado(1L)).thenReturn(tiquete);
+		
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", 1L).accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
+	}
+	
+	@Test
+	public void tiqueteNoEncontradoTest() throws Exception {
+		//arrange
+		when(tiqueteService.buscarVehiculoRegistrado(-1L)).thenReturn(null);
+		
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", -1L).accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
+	}
+	
+	@Test
 	public void facturarTest() throws Exception{
 		//arrange
 		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);

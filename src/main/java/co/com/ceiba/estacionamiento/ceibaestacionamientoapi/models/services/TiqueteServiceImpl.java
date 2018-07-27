@@ -65,8 +65,8 @@ public class TiqueteServiceImpl implements ITiqueteService{
 		int horasParqueo = cantidadTotalHoras(calFechaInicial, calFechaFinal);
 		int diasParqueo = horasParqueo/24; 
 		int horasResiduo = horasParqueo % 24;
-
-		if(horasResiduo == 0) {
+		
+		if(horasParqueo == 0) {
 			total = valorHora;
 		}
 		
