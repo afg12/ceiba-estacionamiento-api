@@ -13,10 +13,8 @@ public interface ITiqueteService {
 	
 	public int cantParqueaderosDisponibles(TipoVehiculo tipoVehiculo);
 	
-	public Tiquete buscarVehiculoRegistrado(Long id);
+	public Tiquete buscarVehiculoId(Long id);
 	
-	public Double calcularCosto(Tiquete tiquete);
-	
-	public Tiquete validarVehiculo(String placa);
+	public Tiquete buscarvehiculoPlaca(String placa);
 	
 }

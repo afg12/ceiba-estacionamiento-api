@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCostoTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2018-07-31T15:44:50" hostname="ANDREA-FLOREZ" time="0.006">
+  <properties/>
+  <testcase name="calcularCostoMenorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCostoTest" time="0.002"/>
+  <testcase name="calcularCostoMayorCilindrajeMinimo" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCostoTest" time="0.001"/>
+  <testcase name="calcularCostoHoras" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCostoTest" time="0.002"/>
+  <testcase name="calcularCostoMayorHorasMinimas" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCostoTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

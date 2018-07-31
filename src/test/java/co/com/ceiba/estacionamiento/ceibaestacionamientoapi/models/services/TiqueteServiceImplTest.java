@@ -1,9 +1,14 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services;
 
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
-import java.util.Calendar;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,8 +19,6 @@ import org.mockito.Mockito;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCarroDataBuilder;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCilindrajeMinimoBuilder;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteHorasExtrasBuilder;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteMotoDataBuilder;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
@@ -49,7 +52,7 @@ public class TiqueteServiceImplTest {
 	 }
 	
 	@Test
-	public void validarVehiculoTest() {
+	public void buscarVehiculoporPlacaTest() {
 		// arrange
 		String placa = "44474";
 		TiqueteCarroDataBuilder tiqueteCarro = new TiqueteCarroDataBuilder();
@@ -58,84 +61,24 @@ public class TiqueteServiceImplTest {
 		Mockito.when(tiqueteRepository.findVehiculoByPlaca(tiquete.getPlaca())).thenReturn(tiquete);
 		
 		//act
-	    Tiquete tiqueteFound = tiqueteService.validarVehiculo(placa);
+	    Tiquete tiqueteFound = tiqueteService.buscarvehiculoPlaca(placa);
 	    
 	    // assert
 	    Assert.assertEquals(placa, tiqueteFound.getPlaca());
 	 }
 	
 	@Test
-	public void calcularCostoMenorHorasMinimas() {
+	public void obtenerTiquetesTest() {
 		// arrange
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.add(Calendar.HOUR, -3);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
+		List<Tiquete> listTiquete = Arrays.asList(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
 		
-		Tiquete tiquete = new TiqueteMotoDataBuilder().setFechaI(calendar.getTime()).build();
-		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
+		Mockito.when(tiqueteRepository.findAll()).thenReturn(listTiquete);
 		
 		//act
-		Double valorPagar = tiqueteService.calcularCosto(tiquete);
+		List<Tiquete> listTiqueteFound = tiqueteService.listarTiquetes();
 	    
 	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
-	 }
-	
-	@Test
-	public void calcularCostoMayorHorasMinimas() {
-		// arrange
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.add(Calendar.HOUR, -9);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		
-		Tiquete tiquete = new TiqueteCarroDataBuilder().setFechaI(calendar.getTime()).build();
-		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
-		
-		//act
-		Double valorPagar = tiqueteService.calcularCosto(tiquete);
-	    
-	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
-	 }
-	
-	@Test
-	public void calcularCostoMayorCilindrajeMinimo() {
-		// arrange
-		TiqueteCilindrajeMinimoBuilder tiqueteMoto = new TiqueteCilindrajeMinimoBuilder();
-		Tiquete tiquete = tiqueteMoto.build();
-		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
-		
-		//act
-		Double valorPagar = tiqueteService.calcularCosto(tiquete);
-	    
-	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
-	 }
-	
-	@Test
-	public void calcularCostoHoras() {
-		// arrange
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(new Date());
-		calendar.add(Calendar.HOUR, -27);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		
-		Tiquete tiquete = new TiqueteHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
-		Mockito.when(tiqueteRepository.save(tiquete)).thenReturn(tiquete);
-		
-		//act
-		Double valorPagar = tiqueteService.calcularCosto(tiquete);
-	    
-	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
+	    Assert.assertNotNull(listTiqueteFound);
 	 }
 
 }

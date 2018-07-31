@@ -16,10 +16,6 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 	
 	private static final String PLACA_NO_PERMITIDA = "A";
 	
-	private static final int CANT_MOTOS = 10;
-
-	private static final int CANT_CARROS = 20;
-	
 	ITiqueteDao tiqueteDao;
 	
 	@Autowired
@@ -29,24 +25,23 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo) {
+	public void validarDisponibilidad(TipoVehiculo tipoVehiculo) {
 		if(null == tipoVehiculo) {
 			throw new CamposObligatoriosException("Los campos con * son obligatorios");
 		}
 		
 		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
-
-		if(!((TipoVehiculo.MOTO == tipoVehiculo && cantVehiculosParqueados < CANT_MOTOS)
-				|| (TipoVehiculo.CARRO == tipoVehiculo && cantVehiculosParqueados < CANT_CARROS))) {
+		
+		Celda celda = FactoryCelda.getCelda(tipoVehiculo);
+		
+		if( cantVehiculosParqueados == celda.getMaximoCelda() ) {
 			throw new VehiculoException("No hay cupos disponibles");
 		}
-		
-		return true;
 	}
 
 	@Override
 	@Transactional(readOnly=true)
-	public boolean validarPlaca(String placa, Calendar calendar) {
+	public void validarPlaca(String placa, Calendar calendar) {
 		if(placa.isEmpty()) {
 			throw new CamposObligatoriosException("Los campos con * son obligatorios");
 		}
@@ -58,10 +53,8 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 		}
 
 		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && !validarDia(dia)) {
-				throw new VehiculoException("Vehiculo no permitido");
+			throw new VehiculoException("Vehiculo no permitido");
 		}
-		
-		return true;
 	}
 	
 	public boolean validarDia(int dia) {

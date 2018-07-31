@@ -89,7 +89,7 @@ public class ParqueaderoRestControllerTest {
 	public void buscarTiqueteTest() throws Exception {
 		//arrange
 		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
-		when(tiqueteService.buscarVehiculoRegistrado(1L)).thenReturn(tiquete);
+		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", 1L).accept(MediaType.APPLICATION_JSON))
@@ -102,7 +102,7 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void tiqueteNoEncontradoTest() throws Exception {
 		//arrange
-		when(tiqueteService.buscarVehiculoRegistrado(-1L)).thenReturn(null);
+		when(tiqueteService.buscarVehiculoId(-1L)).thenReturn(null);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", -1L).accept(MediaType.APPLICATION_JSON))
@@ -116,7 +116,7 @@ public class ParqueaderoRestControllerTest {
 	public void facturarTest() throws Exception{
 		//arrange
 		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
-		when(tiqueteService.buscarVehiculoRegistrado(1L)).thenReturn(tiquete);
+		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
 		
 		MockHttpServletResponse response = mockMvc.perform(
                 put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON).

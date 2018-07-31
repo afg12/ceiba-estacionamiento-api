@@ -31,18 +31,7 @@ public class ParqueaderoServiceImplTest {
 		parqueaderoService = new ParqueaderoServiceImpl(tiqueteRepository);
     }
 
-	@Test
-	public void isDisponibleParqueoMoto() {
-		// arrange
-		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.MOTO)).thenReturn(9);
-		
-		//act
-	    boolean isDisponibleParqueo = parqueaderoService.validarDisponibilidad(TipoVehiculo.MOTO);
-	    
-	    // assert
-	    Assert.assertTrue(isDisponibleParqueo);
-	}
-	
+
 	@Test
 	public void isNoDisponibleParqueoCarro() {
 		// arrange
@@ -73,21 +62,6 @@ public class ParqueaderoServiceImplTest {
 		}
 	}
 	
-	@Test
-	public void isPlacaPermitida() {
-		// arrange
-		Calendar calendar =  Calendar.getInstance();
-		calendar.set(Calendar.DAY_OF_WEEK, Calendar.WEDNESDAY);
-		
-		TiqueteCarroDataBuilder tiqueteCarro = new TiqueteCarroDataBuilder();
-		Tiquete tiquete = tiqueteCarro.build();
-		
-		//act
-	    boolean isPlacaPermitida = parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar);
-	    
-	    // assert
-	    Assert.assertTrue(isPlacaPermitida);
-	}
 	
 	@Test
 	public void validarPlacaConA() {

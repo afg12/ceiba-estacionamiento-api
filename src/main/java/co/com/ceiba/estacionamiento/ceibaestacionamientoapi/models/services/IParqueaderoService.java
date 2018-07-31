@@ -6,7 +6,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 public interface IParqueaderoService {
 	
-	public boolean validarDisponibilidad(TipoVehiculo tipoVehiculo);
+	public void validarDisponibilidad(TipoVehiculo tipoVehiculo);
 	
-	public boolean validarPlaca(String placa, Calendar calendar);
+	public void validarPlaca(String placa, Calendar calendar);
 }
