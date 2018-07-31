@@ -2,10 +2,9 @@ package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio;
 
 import java.util.Calendar;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
-
-import static co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes.*;
 
 public final class CalculadoraCosto {
 	
@@ -24,10 +23,10 @@ public final class CalculadoraCosto {
 		return calculadoraCosto;
 	}
 
-	public double calcularCosto(Tiquete tiquete) {
+	public double calcularCosto(RegistroVehiculo tiquete) {
 		int total = 0;
-		int valorHora = TipoVehiculo.CARRO == tiquete.getTipoVehiculo() ? VALOR_HORA_CARRO: VALOR_HORA_MOTO;
-		int valorDia = TipoVehiculo.CARRO == tiquete.getTipoVehiculo()? VALOR_DIA_CARRO : VALOR_DIA_MOTO;
+		int valorHora = TipoVehiculo.CARRO == tiquete.getTipoVehiculo() ? Constantes.VALOR_HORA_CARRO: Constantes.VALOR_HORA_MOTO;
+		int valorDia = TipoVehiculo.CARRO == tiquete.getTipoVehiculo()? Constantes.VALOR_DIA_CARRO : Constantes.VALOR_DIA_MOTO;
 		
 		Calendar calFechaInicial=Calendar.getInstance();
 		Calendar calFechaFinal=Calendar.getInstance();
@@ -41,7 +40,7 @@ public final class CalculadoraCosto {
 			total = valorHora;
 		}
 		
-		if(horasResiduo >= HORAS_MINIMAS) {
+		if(horasResiduo >= Constantes.HORAS_MINIMAS) {
 			diasParqueo +=1;
 		} else {
 			total += (horasResiduo * valorHora);
@@ -51,8 +50,8 @@ public final class CalculadoraCosto {
 			total += (diasParqueo * valorDia);
 		}
 		
-		if(TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && Integer.parseInt(tiquete.getCilindraje()) > CILINDRAJE_MINIMO) {
-			total += VALOR_ADICIONAL_MOTO; 
+		if(TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && Integer.parseInt(tiquete.getCilindraje()) > Constantes.CILINDRAJE_MINIMO) {
+			total += Constantes.VALOR_ADICIONAL_MOTO; 
 		}
 		
 		return (double) total;

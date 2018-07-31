@@ -13,9 +13,9 @@ import org.mockito.Mockito;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCarroDataBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistroVehiculoDao;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.RegistroCarroDataBuilder;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 public class ParqueaderoServiceImplTest {
@@ -23,19 +23,19 @@ public class ParqueaderoServiceImplTest {
 	private ParqueaderoServiceImpl parqueaderoService;
 	 
     @Mock
-    private ITiqueteDao tiqueteRepository;
+    private IRegistroVehiculoDao registroRepository;
     
     @Before
     public void setUp() {
-		tiqueteRepository = mock(ITiqueteDao.class);
-		parqueaderoService = new ParqueaderoServiceImpl(tiqueteRepository);
+    	registroRepository = mock(IRegistroVehiculoDao.class);
+		parqueaderoService = new ParqueaderoServiceImpl(registroRepository);
     }
 
 
 	@Test
 	public void isNoDisponibleParqueoCarro() {
 		// arrange
-		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.CARRO)).thenReturn(20);
+		Mockito.when(registroRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.CARRO)).thenReturn(20);
 	    
 	    //act
   		try {			
@@ -50,7 +50,7 @@ public class ParqueaderoServiceImplTest {
 	@Test
 	public void isNoDisponibleParqueoMoto() {
 		// arrange
-		Mockito.when(tiqueteRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.MOTO)).thenReturn(10);
+		Mockito.when(registroRepository.countByTipoVehiculoAndFechaSalida(TipoVehiculo.MOTO)).thenReturn(10);
 	    
 	    //act
 		try {			
@@ -70,7 +70,7 @@ public class ParqueaderoServiceImplTest {
 		Calendar calendar =  Calendar.getInstance();
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		
-		Tiquete tiquete = new TiqueteCarroDataBuilder().setPlaca(placa).build();
+		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setPlaca(placa).build();
 
 	    //act
 		try {			
@@ -89,8 +89,8 @@ public class ParqueaderoServiceImplTest {
 		Calendar calendar =  Calendar.getInstance();
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		
-		Tiquete tiquete = new TiqueteCarroDataBuilder().setPlaca(placa).build();
-		Mockito.when(tiqueteRepository.findVehiculoByPlaca(placa)).thenReturn(tiquete);
+		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setPlaca(placa).build();
+		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(tiquete);
 
 	    //act
 		try {			

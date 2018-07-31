@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio.CalculadoraCosto;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ITiqueteService;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IRegistroVehiculoService;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IParqueaderoService;
 
 @CrossOrigin(origins= {"http://localhost:4200"})
@@ -26,7 +26,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IPar
 public class ParqueaderoRestController {
 
 	@Autowired
-	private ITiqueteService tiqueteService;
+	private IRegistroVehiculoService tiqueteService;
 	
 	@Autowired
 	private IParqueaderoService parqueaderoService;
@@ -34,7 +34,7 @@ public class ParqueaderoRestController {
 	CalculadoraCosto calculadoraCosto = CalculadoraCosto.getInstance();
 	
 	@RequestMapping(value="/registrar", method = RequestMethod.POST)
-	public ResponseEntity<Tiquete> registrarEntrada(@RequestBody Tiquete tiquete) {
+	public ResponseEntity<RegistroVehiculo> registrarEntrada(@RequestBody RegistroVehiculo tiquete) {
 		Calendar calendar = Calendar.getInstance();
 		parqueaderoService.validarDisponibilidad(tiquete.getTipoVehiculo());
 		parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar);
@@ -45,8 +45,8 @@ public class ParqueaderoRestController {
 	}
 	
 	@RequestMapping(value="/facturar/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<Tiquete> generarTiquete(@PathVariable Long id, @RequestBody Tiquete tiquete) {
-		Tiquete tiqueteEncontrado = tiqueteService.buscarVehiculoId(id);
+	public ResponseEntity<RegistroVehiculo> generarTiquete(@PathVariable Long id, @RequestBody RegistroVehiculo tiquete) {
+		RegistroVehiculo tiqueteEncontrado = tiqueteService.buscarVehiculoId(id);
 		tiqueteEncontrado.setTotal(calculadoraCosto.calcularCosto(tiquete));
 		tiqueteService.save(tiqueteEncontrado);
 		
@@ -54,8 +54,8 @@ public class ParqueaderoRestController {
 	}
 	
 	@GetMapping(value="/listar")
-	public ResponseEntity<List<Tiquete>> listarVehiculos() {
-		List<Tiquete> tiquetes = tiqueteService.listarTiquetes();
+	public ResponseEntity<List<RegistroVehiculo>> listarVehiculos() {
+		List<RegistroVehiculo> tiquetes = tiqueteService.listarTiquetes();
         if (tiquetes.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -64,8 +64,8 @@ public class ParqueaderoRestController {
 	}
 	
 	@GetMapping(value="/tiquete/{id}")
-	public ResponseEntity<Tiquete> buscarTiquete(@PathVariable Long id) {
-		Tiquete tiquete = tiqueteService.buscarVehiculoId(id);
+	public ResponseEntity<RegistroVehiculo> buscarTiquete(@PathVariable Long id) {
+		RegistroVehiculo tiquete = tiqueteService.buscarVehiculoId(id);
         if (null==tiquete) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }

@@ -29,8 +29,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.CeibaEstacionamientoApiApplication;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImpl;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.RegistroVehiculoServiceImpl;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @RunWith(SpringRunner.class)
@@ -43,12 +43,12 @@ public class ParqueaderoRestControllerTest {
 	private MockMvc mockMvc;
 	
 	@MockBean
-    private TiqueteServiceImpl tiqueteService;
+    private RegistroVehiculoServiceImpl tiqueteService;
 	
 	@Test
 	public void tiquetesNoEncontradosTest() throws Exception {
 		//arrange
-		List<Tiquete> tiquetes = new ArrayList<>();
+		List<RegistroVehiculo> tiquetes = new ArrayList<>();
 		when(tiqueteService.listarTiquetes()).thenReturn(tiquetes);
 		
 		//act
@@ -64,7 +64,7 @@ public class ParqueaderoRestControllerTest {
 		
 		MockHttpServletResponse response = mockMvc.perform(
                 post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
-                		asJsonString(new Tiquete("JTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00))
+                		asJsonString(new RegistroVehiculo("JTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00))
                 )).andReturn().getResponse();
 		
 		//assert
@@ -74,7 +74,7 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void listarTiquetesTest() throws Exception {
 		//arrange
-		List<Tiquete> tiquetes = Arrays.asList(new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
+		List<RegistroVehiculo> tiquetes = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
 		when(tiqueteService.listarTiquetes()).thenReturn(tiquetes);
 		
 		//act
@@ -88,7 +88,7 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void buscarTiqueteTest() throws Exception {
 		//arrange
-		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
+		RegistroVehiculo tiquete = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
 		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
 		
 		//act
@@ -115,7 +115,7 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void facturarTest() throws Exception{
 		//arrange
-		Tiquete tiquete = new Tiquete("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
+		RegistroVehiculo tiquete = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
 		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
 		
 		MockHttpServletResponse response = mockMvc.perform(

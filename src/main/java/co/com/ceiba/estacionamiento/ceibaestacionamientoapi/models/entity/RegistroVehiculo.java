@@ -18,8 +18,8 @@ import javax.validation.constraints.NotEmpty;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Entity
-@Table(name="tiquetes")
-public class Tiquete implements Serializable{
+@Table(name="Registro")
+public class RegistroVehiculo implements Serializable{
 	
 	/**
 	 * 
@@ -56,11 +56,11 @@ public class Tiquete implements Serializable{
 		fechaSalida = new Date();
 	}
 	
-	private Tiquete() {
+	private RegistroVehiculo() {
 
 	}
 
-	public Tiquete(String placa, String cilindraje, TipoVehiculo tipoVehiculo, Date fechaIngreso, Date fechaSalida,
+	public RegistroVehiculo(String placa, String cilindraje, TipoVehiculo tipoVehiculo, Date fechaIngreso, Date fechaSalida,
 			Double total) {
 		this.placa = placa;
 		this.cilindraje = cilindraje;

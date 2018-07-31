@@ -8,19 +8,18 @@ import org.springframework.transaction.annotation.Transactional;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.ITiqueteDao;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistroVehiculoDao;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @Service
 public class ParqueaderoServiceImpl implements IParqueaderoService{
 	
-	private static final String PLACA_NO_PERMITIDA = "A";
-	
-	ITiqueteDao tiqueteDao;
+	IRegistroVehiculoDao registroVehiculoDao;
 	
 	@Autowired
-	public ParqueaderoServiceImpl(ITiqueteDao tiqueteDao) {
-		this.tiqueteDao = tiqueteDao;
+	public ParqueaderoServiceImpl(IRegistroVehiculoDao registroVehiculoDao) {
+		this.registroVehiculoDao = registroVehiculoDao;
 	}
 	
 	@Override
@@ -30,7 +29,7 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 			throw new CamposObligatoriosException("Los campos con * son obligatorios");
 		}
 		
-		int cantVehiculosParqueados = tiqueteDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
+		int cantVehiculosParqueados = registroVehiculoDao.countByTipoVehiculoAndFechaSalida(tipoVehiculo);
 		
 		Celda celda = FactoryCelda.getCelda(tipoVehiculo);
 		
@@ -48,11 +47,11 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 		
 		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		
-		if(null!=tiqueteDao.findVehiculoByPlaca(placa)) {
+		if(null!=registroVehiculoDao.findVehiculoByPlaca(placa)) {
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
 
-		if(PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && !validarDia(dia)) {
+		if(Constantes.PLACA_NO_PERMITIDA.equalsIgnoreCase(placa.substring(0, 1)) && !validarDia(dia)) {
 			throw new VehiculoException("Vehiculo no permitido");
 		}
 	}

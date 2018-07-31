@@ -6,11 +6,11 @@ import java.util.Date;
 import org.junit.Assert;
 import org.junit.Test;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCarroDataBuilder;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteCilindrajeMinimoBuilder;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteHorasExtrasBuilder;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.TiqueteMotoDataBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.RegistroCarroDataBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.RegistroConCilindrajeMinimoBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.RegistroConHorasExtrasBuilder;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder.RegistroMotoDataBuilder;
 
 public class CalculadoraCostoTest {
 	
@@ -26,7 +26,7 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteMotoDataBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo tiquete = new RegistroMotoDataBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
 		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
@@ -45,7 +45,7 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteCarroDataBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
 		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
@@ -57,8 +57,8 @@ public class CalculadoraCostoTest {
 	@Test
 	public void calcularCostoMayorCilindrajeMinimo() {
 		// arrange
-		TiqueteCilindrajeMinimoBuilder tiqueteMoto = new TiqueteCilindrajeMinimoBuilder();
-		Tiquete tiquete = tiqueteMoto.build();
+		RegistroConCilindrajeMinimoBuilder tiqueteMoto = new RegistroConCilindrajeMinimoBuilder();
+		RegistroVehiculo tiquete = tiqueteMoto.build();
 		
 		//act
 		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
@@ -77,7 +77,7 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		Tiquete tiquete = new TiqueteHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo tiquete = new RegistroConHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
 		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);

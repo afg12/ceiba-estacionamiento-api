@@ -3,16 +3,17 @@ package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.testdatabuilder;
 import java.util.Calendar;
 import java.util.Date;
 
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.Tiquete;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-public class TiqueteCarroDataBuilder {
+public class RegistroConHorasExtrasBuilder {
+	
 	private static final String PLACA = "44474";
 	private static final String CILINDRAJE = null;
 	private static final TipoVehiculo TIPO_VEHICULO = TipoVehiculo.CARRO;
 	private static final Date FECHA_INGRESO = Calendar.getInstance().getTime();
 	private static final Date FECHA_SALIDA = null;
-	private static final Double TOTAL = 8000.00;
+	private static final Double TOTAL = 11000.00;
 	
 	private String placa;	
 	private String cilindraje;
@@ -21,7 +22,7 @@ public class TiqueteCarroDataBuilder {
 	private Date fechaSalida;
 	private Double total;
 	
-	public TiqueteCarroDataBuilder() {
+	public RegistroConHorasExtrasBuilder() {
 		this.placa = PLACA;
 		this.cilindraje = CILINDRAJE;
 		this.tipoVehiculo = TIPO_VEHICULO;
@@ -30,37 +31,38 @@ public class TiqueteCarroDataBuilder {
 		this.total = TOTAL;
 	}
 	
-	public TiqueteCarroDataBuilder setPlaca(String placa) {
+	public RegistroConHorasExtrasBuilder setPlaca(String placa) {
 		this.placa = placa;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilder setCilindraje(String cilindraje) {
+	public RegistroConHorasExtrasBuilder setCilindraje(String cilindraje) {
 		this.cilindraje = cilindraje;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
+	public RegistroConHorasExtrasBuilder setTipoVehiculo(TipoVehiculo tipoVehiculo) {
 		this.tipoVehiculo = tipoVehiculo;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilder setFechaI(Date fechaIngreso) {
+	public RegistroConHorasExtrasBuilder setFechaI(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilder setFechaS(Date fechaSalida) {
+	public RegistroConHorasExtrasBuilder setFechaS(Date fechaSalida) {
 		this.fechaSalida = fechaSalida;
 		return this;
 	}
 	
-	public TiqueteCarroDataBuilder setTotal(Double total) {
+	public RegistroConHorasExtrasBuilder setTotal(Double total) {
 		this.total = total;
 		return this;
 	}
 	
-	public Tiquete build() {
-		return new Tiquete(this.placa, this.cilindraje, this.tipoVehiculo, this.fechaIngreso, this.fechaSalida, this.total);
+	public RegistroVehiculo build() {
+		return new RegistroVehiculo(this.placa, this.cilindraje, this.tipoVehiculo, this.fechaIngreso, this.fechaSalida, this.total);
 	}
+
 }
