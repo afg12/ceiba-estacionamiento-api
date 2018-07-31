@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-07-31T16:06:19" hostname="ANDREA-FLOREZ" time="0.002">
-  <properties/>
-  <testcase name="cantidadVehiculosParqueadosTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.001"/>
-  <testcase name="obtenerTiquetesTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.0"/>
-  <testcase name="buscarVehiculoporPlacaTest" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.TiqueteServiceImplTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
