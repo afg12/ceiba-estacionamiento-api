@@ -7,7 +7,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 import static co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes.*;
 
-public class CalculadoraCosto {
+public final class CalculadoraCosto {
 	
 	private static final int HORAS_DIA = 24;
 	

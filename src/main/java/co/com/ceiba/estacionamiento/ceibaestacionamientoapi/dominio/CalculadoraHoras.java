@@ -2,7 +2,7 @@ package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.dominio;
 
 import java.util.Calendar;
 
-public class CalculadoraHoras {
+public final class CalculadoraHoras {
 	
 	private static CalculadoraHoras calculadoraHoras;
 	
