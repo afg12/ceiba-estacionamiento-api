@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistroVehiculoDao;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
