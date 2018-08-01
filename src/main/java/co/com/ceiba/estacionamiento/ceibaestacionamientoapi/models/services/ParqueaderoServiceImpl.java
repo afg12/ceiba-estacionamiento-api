@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.CamposObligatoriosException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.exceptions.VehiculoException;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistroVehiculoDao;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
@@ -47,7 +48,9 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 		
 		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		
-		if(null!=registroVehiculoDao.findVehiculoByPlaca(placa)) {
+		RegistroVehiculo registro = registroVehiculoDao.findVehiculoByPlaca(placa);
+		
+		if(null!=registro && null==registro.getFechaSalida()) {
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
 

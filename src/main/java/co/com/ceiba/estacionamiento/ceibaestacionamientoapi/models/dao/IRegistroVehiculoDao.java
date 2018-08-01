@@ -1,5 +1,7 @@
 package co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -17,4 +19,10 @@ public interface IRegistroVehiculoDao extends CrudRepository<RegistroVehiculo, L
 	
 	@Query("select r from RegistroVehiculo r where r.placa = ?1")
 	public RegistroVehiculo findVehiculoByPlaca(String placa);
+	
+	@Query("select r from RegistroVehiculo r where r.fechaSalida is null")
+	public List<RegistroVehiculo> findVehiculoByFechaSalidaNull();
+	
+	@Query("select r from RegistroVehiculo r where r.fechaSalida is not null")
+	public List<RegistroVehiculo> findVehiculoByFechaSalidaNotNull();
 }

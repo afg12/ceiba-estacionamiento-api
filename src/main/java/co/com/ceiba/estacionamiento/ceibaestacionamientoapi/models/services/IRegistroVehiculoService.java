@@ -15,6 +15,10 @@ public interface IRegistroVehiculoService {
 	
 	public RegistroVehiculo buscarVehiculoId(Long id);
 	
-	public RegistroVehiculo buscarvehiculoPlaca(String placa);
+	public RegistroVehiculo buscarVehiculoPlaca(String placa);
+	
+	public List<RegistroVehiculo> listarRegistrosSinSalida();
+	
+	public List<RegistroVehiculo> listarRegistrosConSalida();
 	
 }

@@ -41,9 +41,9 @@ public class ParqueaderoRestController {
 		return new ResponseEntity<>(registro, HttpStatus.OK);
 	}
 	
-	@GetMapping(value="/listar")
-	public ResponseEntity<List<RegistroVehiculo>> listarVehiculos() {
-		List<RegistroVehiculo> registros = registroVehiculoService.listarRegistros();
+	@GetMapping(value="/listarRegistros")
+	public ResponseEntity<List<RegistroVehiculo>> listarRegistros() {
+		List<RegistroVehiculo> registros = registroVehiculoService.listarRegistrosSinSalida();
         if (registros.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -59,4 +59,14 @@ public class ParqueaderoRestController {
         }
 		return new ResponseEntity<>(registro, HttpStatus.OK);
  	}
+	
+	@GetMapping(value="/listarFacturas")
+	public ResponseEntity<List<RegistroVehiculo>> listarFacturas() {
+		List<RegistroVehiculo> registros = registroVehiculoService.listarRegistrosConSalida();
+        if (registros.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+		return new ResponseEntity<>(registros, HttpStatus.OK);
+
+	}
 }

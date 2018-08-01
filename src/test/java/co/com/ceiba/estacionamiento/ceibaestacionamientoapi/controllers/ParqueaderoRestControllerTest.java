@@ -53,7 +53,7 @@ public class ParqueaderoRestControllerTest {
 		when(registroVehiculo.listarRegistros()).thenReturn(registros);
 		
 		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listarRegistros").accept(MediaType.APPLICATION_JSON))
 			.andDo(print()).andReturn().getResponse();
 		
 		//assert
@@ -76,15 +76,44 @@ public class ParqueaderoRestControllerTest {
 	public void listarRegistrosTest() throws Exception {
 		//arrange
 		List<RegistroVehiculo> registros = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
-		when(registroVehiculo.listarRegistros()).thenReturn(registros);
+		when(registroVehiculo.listarRegistrosSinSalida()).thenReturn(registros);
 		
 		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listarRegistros").accept(MediaType.APPLICATION_JSON))
 			.andDo(print()).andReturn().getResponse();
 		
 		//assert
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
 	}
+	
+	@Test
+	public void facturasNoEncontradasTest() throws Exception{
+		//arrange
+		List<RegistroVehiculo> facturas = new ArrayList<>();
+		when(registroVehiculo.listarRegistrosConSalida()).thenReturn(facturas);
+		
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listarFacturas").accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
+	}
+	
+	@Test
+	public void listarFacturasTest() throws Exception{
+		//arrange
+		List<RegistroVehiculo> facturas = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), new Date(), 0.00));
+		when(registroVehiculo.listarRegistrosConSalida()).thenReturn(facturas);
+		
+		//act
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listarFacturas").accept(MediaType.APPLICATION_JSON))
+			.andDo(print()).andReturn().getResponse();
+		
+		//assert
+		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());
+	}
+	
 	
 	@Test
 	public void buscarRegistroTest() throws Exception {

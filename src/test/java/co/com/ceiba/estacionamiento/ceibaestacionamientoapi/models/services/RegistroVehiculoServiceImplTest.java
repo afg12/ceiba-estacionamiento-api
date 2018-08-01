@@ -56,7 +56,7 @@ public class RegistroVehiculoServiceImplTest {
 		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(registro);
 		
 		//act
-	    RegistroVehiculo registroEncontrado = registroVehiculoService.buscarvehiculoPlaca(placa);
+	    RegistroVehiculo registroEncontrado = registroVehiculoService.buscarVehiculoPlaca(placa);
 	    
 	    // assert
 	    Assert.assertEquals(placa, registroEncontrado.getPlaca());

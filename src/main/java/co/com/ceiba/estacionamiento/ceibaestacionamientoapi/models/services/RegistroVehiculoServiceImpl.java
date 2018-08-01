@@ -48,8 +48,18 @@ public class RegistroVehiculoServiceImpl implements IRegistroVehiculoService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public RegistroVehiculo buscarvehiculoPlaca(String placa) {
+	public RegistroVehiculo buscarVehiculoPlaca(String placa) {
 		return registroVehiculoDao.findVehiculoByPlaca(placa);
+	}
+
+	@Override
+	public List<RegistroVehiculo> listarRegistrosSinSalida() {
+		return registroVehiculoDao.findVehiculoByFechaSalidaNull();
+	}
+
+	@Override
+	public List<RegistroVehiculo> listarRegistrosConSalida() {
+		return registroVehiculoDao.findVehiculoByFechaSalidaNotNull();
 	}
 
 }
