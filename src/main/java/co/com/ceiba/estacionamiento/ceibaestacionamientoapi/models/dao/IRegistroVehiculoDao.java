@@ -17,8 +17,8 @@ public interface IRegistroVehiculoDao extends CrudRepository<RegistroVehiculo, L
 	@Query("select r from RegistroVehiculo r where r.id = :id")
 	public RegistroVehiculo findVehiculoById(@Param("id") Long id);
 	
-	@Query("select r from RegistroVehiculo r where r.placa = ?1")
-	public RegistroVehiculo findVehiculoByPlaca(String placa);
+	@Query("select r from RegistroVehiculo r where r.placa = ?1 and r.fechaSalida is null")
+	public RegistroVehiculo findVehiculoByPlacaAndFechaSalidaNull(String placa);
 	
 	@Query("select r from RegistroVehiculo r where r.fechaSalida is null")
 	public List<RegistroVehiculo> findVehiculoByFechaSalidaNull();

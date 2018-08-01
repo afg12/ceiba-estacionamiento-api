@@ -88,7 +88,7 @@ public class ParqueaderoServiceImplTest {
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		
 		RegistroVehiculo registro = new RegistroCarroDataBuilder().setPlaca(placa).build();
-		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(registro);
+		Mockito.when(registroRepository.findVehiculoByPlacaAndFechaSalidaNull(placa)).thenReturn(registro);
 
 	    //act
 		try {			

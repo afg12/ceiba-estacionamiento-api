@@ -48,9 +48,7 @@ public class ParqueaderoServiceImpl implements IParqueaderoService{
 		
 		int dia = calendar.get(Calendar.DAY_OF_WEEK);
 		
-		RegistroVehiculo registro = registroVehiculoDao.findVehiculoByPlaca(placa);
-		
-		if(null!=registro && null==registro.getFechaSalida()) {
+		if(null!=registroVehiculoDao.findVehiculoByPlacaAndFechaSalidaNull(placa)) {
 			throw new VehiculoException("Vehiculo se encuentra registrado");
 		}
 

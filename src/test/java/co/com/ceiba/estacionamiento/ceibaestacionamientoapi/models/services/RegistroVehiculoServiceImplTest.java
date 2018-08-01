@@ -53,7 +53,7 @@ public class RegistroVehiculoServiceImplTest {
 		RegistroCarroDataBuilder registroCarro = new RegistroCarroDataBuilder();
 		RegistroVehiculo registro = registroCarro.build();
 		
-		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(registro);
+		Mockito.when(registroRepository.findVehiculoByPlacaAndFechaSalidaNull(placa)).thenReturn(registro);
 		
 		//act
 	    RegistroVehiculo registroEncontrado = registroVehiculoService.buscarVehiculoPlaca(placa);
