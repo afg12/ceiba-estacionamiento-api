@@ -12,7 +12,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistro
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.Constantes;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-@Service
+@Service("parqueaderoService")
 public class ParqueaderoServiceImpl implements IParqueaderoService{
 	
 	IRegistroVehiculoDao registroVehiculoDao;

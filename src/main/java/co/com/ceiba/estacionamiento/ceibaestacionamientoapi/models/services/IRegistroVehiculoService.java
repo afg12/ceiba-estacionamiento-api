@@ -7,7 +7,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 public interface IRegistroVehiculoService {
 	
-	public void save(RegistroVehiculo tiquete);
+	public void save(RegistroVehiculo registro);
 
 	public List<RegistroVehiculo> listarTiquetes();
 	

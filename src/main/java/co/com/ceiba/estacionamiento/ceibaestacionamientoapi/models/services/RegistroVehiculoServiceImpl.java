@@ -11,7 +11,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.dao.IRegistro
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
-@Service
+@Service("registroVehiculoService")
 public class RegistroVehiculoServiceImpl implements IRegistroVehiculoService{
 
 	private IRegistroVehiculoDao registroVehiculoDao;
@@ -23,8 +23,8 @@ public class RegistroVehiculoServiceImpl implements IRegistroVehiculoService{
 	
 	@Override
 	@Transactional
-	public void save(RegistroVehiculo tiquete) {
-		registroVehiculoDao.save(tiquete);
+	public void save(RegistroVehiculo registro) {
+		registroVehiculoDao.save(registro);
 		
 	}
 

@@ -14,6 +14,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,7 +31,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.CeibaEstacionamientoApiApplication;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.entity.RegistroVehiculo;
-import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.RegistroVehiculoServiceImpl;
+import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.IRegistroVehiculoService;
 import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 @RunWith(SpringRunner.class)
@@ -43,13 +44,13 @@ public class ParqueaderoRestControllerTest {
 	private MockMvc mockMvc;
 	
 	@MockBean
-    private RegistroVehiculoServiceImpl tiqueteService;
+    private IRegistroVehiculoService registroVehiculo;
 	
 	@Test
 	public void tiquetesNoEncontradosTest() throws Exception {
 		//arrange
 		List<RegistroVehiculo> tiquetes = new ArrayList<>();
-		when(tiqueteService.listarTiquetes()).thenReturn(tiquetes);
+		when(registroVehiculo.listarTiquetes()).thenReturn(tiquetes);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
@@ -60,7 +61,7 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void isRegistrarEntradaTest() throws Exception {
+	public void registrarEntradaTest() throws Exception {
 		
 		MockHttpServletResponse response = mockMvc.perform(
                 post("/parqueadero/registrar").contentType(MediaType.APPLICATION_JSON).content(
@@ -75,7 +76,7 @@ public class ParqueaderoRestControllerTest {
 	public void listarTiquetesTest() throws Exception {
 		//arrange
 		List<RegistroVehiculo> tiquetes = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
-		when(tiqueteService.listarTiquetes()).thenReturn(tiquetes);
+		when(registroVehiculo.listarTiquetes()).thenReturn(tiquetes);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
@@ -89,10 +90,10 @@ public class ParqueaderoRestControllerTest {
 	public void buscarTiqueteTest() throws Exception {
 		//arrange
 		RegistroVehiculo tiquete = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
-		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
+		when(registroVehiculo.buscarVehiculoId(1L)).thenReturn(tiquete);
 		
 		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", 1L).accept(MediaType.APPLICATION_JSON))
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/registro/{id}", 1L).accept(MediaType.APPLICATION_JSON))
 			.andDo(print()).andReturn().getResponse();
 		
 		//assert
@@ -102,10 +103,10 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void tiqueteNoEncontradoTest() throws Exception {
 		//arrange
-		when(tiqueteService.buscarVehiculoId(-1L)).thenReturn(null);
+		when(registroVehiculo.buscarVehiculoId(-1L)).thenReturn(null);
 		
 		//act
-		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/tiquete/{id}", -1L).accept(MediaType.APPLICATION_JSON))
+		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/registro/{id}", -1L).accept(MediaType.APPLICATION_JSON))
 			.andDo(print()).andReturn().getResponse();
 		
 		//assert
@@ -115,12 +116,12 @@ public class ParqueaderoRestControllerTest {
 	@Test
 	public void facturarTest() throws Exception{
 		//arrange
-		RegistroVehiculo tiquete = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
-		when(tiqueteService.buscarVehiculoId(1L)).thenReturn(tiquete);
+		RegistroVehiculo registro = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
+		when(registroVehiculo.buscarVehiculoId(Mockito.anyLong())).thenReturn(registro);
 		
 		MockHttpServletResponse response = mockMvc.perform(
                 put("/parqueadero/facturar/{id}", 1L).contentType(MediaType.APPLICATION_JSON).
-                content(asJsonString(tiquete))).andDo(print()).andReturn().getResponse();
+                content(asJsonString(registro))).andDo(print()).andReturn().getResponse();
 
 		//assert
 		Assert.assertEquals(HttpStatus.OK.value(), response.getStatus());

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-07-31T20:42:48" hostname="ANDREA-FLOREZ" time="0.087">
+<testsuite name="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2018-08-01T15:37:39" hostname="ANDREA-FLOREZ" time="0.084">
   <properties/>
-  <testcase name="validarDiferenteDia" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.083"/>
+  <testcase name="validarDiferenteDia" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.079"/>
   <testcase name="validarVehiculoRegistrado" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.001"/>
   <testcase name="isNoDisponibleParqueoMoto" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.001"/>
   <testcase name="validarPlacaObligatorio" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.001"/>
   <testcase name="validarTipoVehiculoObligatorio" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
-  <testcase name="validarPlacaConA" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarPlacaConA" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.001"/>
   <testcase name="isNoDisponibleParqueoCarro" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
-  <testcase name="validarDiaLunes" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.0"/>
+  <testcase name="validarDiaLunes" classname="co.com.ceiba.estacionamiento.ceibaestacionamientoapi.models.services.ParqueaderoServiceImplTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
