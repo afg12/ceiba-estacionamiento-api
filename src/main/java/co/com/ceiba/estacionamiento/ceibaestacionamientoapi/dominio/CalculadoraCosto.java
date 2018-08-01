@@ -36,7 +36,7 @@ public final class CalculadoraCosto {
 		int diasParqueo = horasParqueo/HORAS_DIA; 
 		int horasResiduo = horasParqueo % HORAS_DIA;
 		
-		if(horasParqueo == 0) {
+		if(horasResiduo == 0) {
 			total = valorHora;
 		}
 		
