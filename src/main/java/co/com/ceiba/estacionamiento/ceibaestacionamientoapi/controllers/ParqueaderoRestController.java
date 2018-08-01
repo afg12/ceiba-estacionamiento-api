@@ -36,27 +36,27 @@ public class ParqueaderoRestController {
 	}
 	
 	@RequestMapping(value="/facturar/{id}", method = RequestMethod.PUT)
-	public ResponseEntity<RegistroVehiculo> generarTiquete(@PathVariable Long id, @RequestBody RegistroVehiculo registro) {
+	public ResponseEntity<RegistroVehiculo> generarSalida(@PathVariable Long id, @RequestBody RegistroVehiculo registro) {
 		vigilante.registrarSalida(id, registro);		
 		return new ResponseEntity<>(registro, HttpStatus.OK);
 	}
 	
 	@GetMapping(value="/listar")
 	public ResponseEntity<List<RegistroVehiculo>> listarVehiculos() {
-		List<RegistroVehiculo> tiquetes = registroVehiculoService.listarTiquetes();
-        if (tiquetes.isEmpty()) {
+		List<RegistroVehiculo> registros = registroVehiculoService.listarRegistros();
+        if (registros.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-		return new ResponseEntity<>(tiquetes, HttpStatus.OK);
+		return new ResponseEntity<>(registros, HttpStatus.OK);
 
 	}
 	
 	@GetMapping(value="/registro/{id}")
-	public ResponseEntity<RegistroVehiculo> buscarTiquete(@PathVariable Long id) {
-		RegistroVehiculo tiquete = registroVehiculoService.buscarVehiculoId(id);
-        if (null==tiquete) {
+	public ResponseEntity<RegistroVehiculo> buscarRegistro(@PathVariable Long id) {
+		RegistroVehiculo registro = registroVehiculoService.buscarVehiculoId(id);
+        if (null==registro) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-		return new ResponseEntity<>(tiquete, HttpStatus.OK);
+		return new ResponseEntity<>(registro, HttpStatus.OK);
  	}
 }

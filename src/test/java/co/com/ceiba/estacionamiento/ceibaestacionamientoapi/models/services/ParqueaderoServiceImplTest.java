@@ -69,12 +69,10 @@ public class ParqueaderoServiceImplTest {
 		String placa ="AWD345";
 		Calendar calendar =  Calendar.getInstance();
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		
-		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setPlaca(placa).build();
 
 	    //act
 		try {			
-			parqueaderoService.validarPlaca(tiquete.getPlaca(), calendar);
+			parqueaderoService.validarPlaca(placa, calendar);
 			fail();
 		} catch (VehiculoException e) {
 			// assert
@@ -89,8 +87,8 @@ public class ParqueaderoServiceImplTest {
 		Calendar calendar =  Calendar.getInstance();
 		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
 		
-		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setPlaca(placa).build();
-		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(tiquete);
+		RegistroVehiculo registro = new RegistroCarroDataBuilder().setPlaca(placa).build();
+		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(registro);
 
 	    //act
 		try {			

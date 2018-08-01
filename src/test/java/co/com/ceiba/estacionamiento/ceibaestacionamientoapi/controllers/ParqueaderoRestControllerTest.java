@@ -47,10 +47,10 @@ public class ParqueaderoRestControllerTest {
     private IRegistroVehiculoService registroVehiculo;
 	
 	@Test
-	public void tiquetesNoEncontradosTest() throws Exception {
+	public void registrosNoEncontradosTest() throws Exception {
 		//arrange
-		List<RegistroVehiculo> tiquetes = new ArrayList<>();
-		when(registroVehiculo.listarTiquetes()).thenReturn(tiquetes);
+		List<RegistroVehiculo> registros = new ArrayList<>();
+		when(registroVehiculo.listarRegistros()).thenReturn(registros);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
@@ -73,10 +73,10 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void listarTiquetesTest() throws Exception {
+	public void listarRegistrosTest() throws Exception {
 		//arrange
-		List<RegistroVehiculo> tiquetes = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
-		when(registroVehiculo.listarTiquetes()).thenReturn(tiquetes);
+		List<RegistroVehiculo> registros = Arrays.asList(new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00));
+		when(registroVehiculo.listarRegistros()).thenReturn(registros);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/listar").accept(MediaType.APPLICATION_JSON))
@@ -87,10 +87,10 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void buscarTiqueteTest() throws Exception {
+	public void buscarRegistroTest() throws Exception {
 		//arrange
-		RegistroVehiculo tiquete = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
-		when(registroVehiculo.buscarVehiculoId(1L)).thenReturn(tiquete);
+		RegistroVehiculo registro = new RegistroVehiculo("LTY123", null, TipoVehiculo.CARRO, new Date(), null, 0.00);
+		when(registroVehiculo.buscarVehiculoId(1L)).thenReturn(registro);
 		
 		//act
 		MockHttpServletResponse response = mockMvc.perform(get("/parqueadero/registro/{id}", 1L).accept(MediaType.APPLICATION_JSON))
@@ -101,7 +101,7 @@ public class ParqueaderoRestControllerTest {
 	}
 	
 	@Test
-	public void tiqueteNoEncontradoTest() throws Exception {
+	public void registroNoEncontradoTest() throws Exception {
 		//arrange
 		when(registroVehiculo.buscarVehiculoId(-1L)).thenReturn(null);
 		

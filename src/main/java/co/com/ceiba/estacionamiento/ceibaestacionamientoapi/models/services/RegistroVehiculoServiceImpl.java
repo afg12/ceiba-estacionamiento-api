@@ -30,7 +30,7 @@ public class RegistroVehiculoServiceImpl implements IRegistroVehiculoService{
 
 	@Override
 	@Transactional(readOnly=true)
-	public List<RegistroVehiculo> listarTiquetes() {
+	public List<RegistroVehiculo> listarRegistros() {
 		return (List<RegistroVehiculo>) registroVehiculoDao.findAll();
 	}
 

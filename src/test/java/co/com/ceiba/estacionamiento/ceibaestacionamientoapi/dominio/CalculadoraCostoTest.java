@@ -26,13 +26,13 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		RegistroVehiculo tiquete = new RegistroMotoDataBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo registro = new RegistroMotoDataBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
-		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
+		Double valorPagar = calculadoraCosto.calcularCosto(registro);
 	    
 	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
+	    Assert.assertEquals(registro.getTotal(), valorPagar);
 	 }
 	
 	@Test
@@ -45,26 +45,26 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		RegistroVehiculo tiquete = new RegistroCarroDataBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo registro = new RegistroCarroDataBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
-		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
+		Double valorPagar = calculadoraCosto.calcularCosto(registro);
 	    
 	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
+	    Assert.assertEquals(registro.getTotal(), valorPagar);
 	 }
 	
 	@Test
 	public void calcularCostoMayorCilindrajeMinimo() {
 		// arrange
-		RegistroConCilindrajeMinimoBuilder tiqueteMoto = new RegistroConCilindrajeMinimoBuilder();
-		RegistroVehiculo tiquete = tiqueteMoto.build();
+		RegistroConCilindrajeMinimoBuilder registroMoto = new RegistroConCilindrajeMinimoBuilder();
+		RegistroVehiculo registro = registroMoto.build();
 		
 		//act
-		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
+		Double valorPagar = calculadoraCosto.calcularCosto(registro);
 	    
 	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
+	    Assert.assertEquals(registro.getTotal(), valorPagar);
 	 }
 	
 	@Test
@@ -77,13 +77,13 @@ public class CalculadoraCostoTest {
 		calendar.set(Calendar.SECOND, 0);
 		calendar.set(Calendar.MILLISECOND, 0);
 		
-		RegistroVehiculo tiquete = new RegistroConHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
+		RegistroVehiculo registro = new RegistroConHorasExtrasBuilder().setFechaI(calendar.getTime()).build();
 		
 		//act
-		Double valorPagar = calculadoraCosto.calcularCosto(tiquete);
+		Double valorPagar = calculadoraCosto.calcularCosto(registro);
 	    
 	    // assert
-	    Assert.assertEquals(tiquete.getTotal(), valorPagar);
+	    Assert.assertEquals(registro.getTotal(), valorPagar);
 	 }
 
 }

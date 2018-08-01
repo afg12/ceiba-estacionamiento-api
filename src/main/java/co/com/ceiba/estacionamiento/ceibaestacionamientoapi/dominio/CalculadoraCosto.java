@@ -23,14 +23,14 @@ public final class CalculadoraCosto {
 		return calculadoraCosto;
 	}
 
-	public double calcularCosto(RegistroVehiculo tiquete) {
+	public double calcularCosto(RegistroVehiculo registro) {
 		int total = 0;
-		int valorHora = TipoVehiculo.CARRO == tiquete.getTipoVehiculo() ? Constantes.VALOR_HORA_CARRO: Constantes.VALOR_HORA_MOTO;
-		int valorDia = TipoVehiculo.CARRO == tiquete.getTipoVehiculo()? Constantes.VALOR_DIA_CARRO : Constantes.VALOR_DIA_MOTO;
+		int valorHora = TipoVehiculo.CARRO == registro.getTipoVehiculo() ? Constantes.VALOR_HORA_CARRO: Constantes.VALOR_HORA_MOTO;
+		int valorDia = TipoVehiculo.CARRO == registro.getTipoVehiculo()? Constantes.VALOR_DIA_CARRO : Constantes.VALOR_DIA_MOTO;
 		
 		Calendar calFechaInicial=Calendar.getInstance();
 		Calendar calFechaFinal=Calendar.getInstance();
-		calFechaInicial.setTime(tiquete.getFechaIngreso());
+		calFechaInicial.setTime(registro.getFechaIngreso());
 		
 		int horasParqueo = CalculadoraHoras.getInstance().cantidadTotalHoras(calFechaInicial, calFechaFinal);
 		int diasParqueo = horasParqueo/HORAS_DIA; 
@@ -50,7 +50,7 @@ public final class CalculadoraCosto {
 			total += (diasParqueo * valorDia);
 		}
 		
-		if(TipoVehiculo.MOTO == tiquete.getTipoVehiculo() && Integer.parseInt(tiquete.getCilindraje()) > Constantes.CILINDRAJE_MINIMO) {
+		if(TipoVehiculo.MOTO == registro.getTipoVehiculo() && Integer.parseInt(registro.getCilindraje()) > Constantes.CILINDRAJE_MINIMO) {
 			total += Constantes.VALOR_ADICIONAL_MOTO; 
 		}
 		

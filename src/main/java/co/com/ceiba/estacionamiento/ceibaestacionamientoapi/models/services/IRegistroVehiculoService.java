@@ -9,7 +9,7 @@ public interface IRegistroVehiculoService {
 	
 	public void save(RegistroVehiculo registro);
 
-	public List<RegistroVehiculo> listarTiquetes();
+	public List<RegistroVehiculo> listarRegistros();
 	
 	public int cantParqueaderosDisponibles(TipoVehiculo tipoVehiculo);
 	

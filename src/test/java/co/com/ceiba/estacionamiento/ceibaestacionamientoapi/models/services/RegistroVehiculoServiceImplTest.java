@@ -19,7 +19,7 @@ import co.com.ceiba.estacionamiento.ceibaestacionamientoapi.util.TipoVehiculo;
 
 public class RegistroVehiculoServiceImplTest {
 
-    private RegistroVehiculoServiceImpl tiqueteService;
+    private RegistroVehiculoServiceImpl registroVehiculoService;
  
     @Mock
     private IRegistroVehiculoDao registroRepository;
@@ -27,20 +27,20 @@ public class RegistroVehiculoServiceImplTest {
     @Before
     public void setUp() {
 		registroRepository = mock(IRegistroVehiculoDao.class);
-		tiqueteService = new RegistroVehiculoServiceImpl(registroRepository);
+		registroVehiculoService = new RegistroVehiculoServiceImpl(registroRepository);
     }
 	
 	@Test
 	public void cantidadVehiculosParqueadosTest() {
 		// arrange
 		TipoVehiculo tipoVehiculo = TipoVehiculo.MOTO;
-		RegistroMotoDataBuilder tiqueteMoto = new RegistroMotoDataBuilder();
-		RegistroVehiculo tiquete = tiqueteMoto.build();
+		RegistroMotoDataBuilder registroMoto = new RegistroMotoDataBuilder();
+		RegistroVehiculo registro = registroMoto.build();
 		
-		Mockito.when(registroRepository.countByTipoVehiculoAndFechaSalida(tiquete.getTipoVehiculo())).thenReturn(1);
+		Mockito.when(registroRepository.countByTipoVehiculoAndFechaSalida(registro.getTipoVehiculo())).thenReturn(1);
 		
 		//act
-	    int cantVehiculos = tiqueteService.cantParqueaderosDisponibles(tipoVehiculo);
+	    int cantVehiculos = registroVehiculoService.cantParqueaderosDisponibles(tipoVehiculo);
 	    
 	    // assert
 	    Assert.assertEquals(1, cantVehiculos);
@@ -50,47 +50,47 @@ public class RegistroVehiculoServiceImplTest {
 	public void buscarVehiculoporPlacaTest() {
 		// arrange
 		String placa = "44474";
-		RegistroCarroDataBuilder tiqueteCarro = new RegistroCarroDataBuilder();
-		RegistroVehiculo tiquete = tiqueteCarro.build();
+		RegistroCarroDataBuilder registroCarro = new RegistroCarroDataBuilder();
+		RegistroVehiculo registro = registroCarro.build();
 		
-		Mockito.when(registroRepository.findVehiculoByPlaca(tiquete.getPlaca())).thenReturn(tiquete);
+		Mockito.when(registroRepository.findVehiculoByPlaca(placa)).thenReturn(registro);
 		
 		//act
-	    RegistroVehiculo tiqueteFound = tiqueteService.buscarvehiculoPlaca(placa);
+	    RegistroVehiculo registroEncontrado = registroVehiculoService.buscarvehiculoPlaca(placa);
 	    
 	    // assert
-	    Assert.assertEquals(placa, tiqueteFound.getPlaca());
+	    Assert.assertEquals(placa, registroEncontrado.getPlaca());
 	 }
 	
 	@Test
-	public void obtenerTiquetesTest() {
+	public void obtenerRegistrosTest() {
 		// arrange
-		RegistroCarroDataBuilder tiqueteCarro = new RegistroCarroDataBuilder();
-		RegistroVehiculo tiquete = tiqueteCarro.build();
-		List<RegistroVehiculo> listTiquete = Arrays.asList(tiquete);
+		RegistroCarroDataBuilder registroCarro = new RegistroCarroDataBuilder();
+		RegistroVehiculo registro = registroCarro.build();
+		List<RegistroVehiculo> listRegistros = Arrays.asList(registro);
 		
-		Mockito.when(registroRepository.findAll()).thenReturn(listTiquete);
+		Mockito.when(registroRepository.findAll()).thenReturn(listRegistros);
 		
 		//act
-		List<RegistroVehiculo> listTiqueteFound = tiqueteService.listarTiquetes();
+		List<RegistroVehiculo> listRegistrosEncontrados = registroVehiculoService.listarRegistros();
 	    
 	    // assert
-	    Assert.assertNotNull(listTiqueteFound);
+	    Assert.assertNotNull(listRegistrosEncontrados);
 	 }
 	
 	@Test
-	public void obtenerTiqueteporIdTest() {
+	public void obtenerRegistroIdTest() {
 		// arrange
-		RegistroCarroDataBuilder tiqueteCarro = new RegistroCarroDataBuilder();
-		RegistroVehiculo tiquete = tiqueteCarro.build();
+		RegistroCarroDataBuilder registroCarro = new RegistroCarroDataBuilder();
+		RegistroVehiculo registro = registroCarro.build();
 		
-		Mockito.doReturn(tiquete).when(registroRepository).findVehiculoById(Mockito.anyLong());
+		Mockito.doReturn(registro).when(registroRepository).findVehiculoById(Mockito.anyLong());
 		
 		//act
-		RegistroVehiculo tiqueteFound = tiqueteService.buscarVehiculoId(1L);
+		RegistroVehiculo registroEncontrado = registroVehiculoService.buscarVehiculoId(1L);
 	    
 	    // assert
-	    Assert.assertNotNull(tiqueteFound);
+	    Assert.assertNotNull(registroEncontrado);
 	 }
 
 }
